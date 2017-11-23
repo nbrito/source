@@ -1,0 +1,120 @@
+-=[ Introduction
+
+After one year doing presentations to show the weakness of pattern-matching, I
+decided to move forward.
+
+The most difficult choice, for  me, was to choose  the vulnerability,  and then
+start the signatures analysis and develop a code to generate false-positive.
+
+Finally I choose the MS02-039/CVE-2002-0649.
+
+Two main reason drove me to this decision:
+
+- It is a PRETTY OLD VULNERABILITY and some people has the  wrong feeling that
+  all NIPS/NIDS should/will detect, even because this vulnerability have  been
+  exploited by Slammer Worm;
+
+After the analysis of two Snort signatures, I created two tools trying to:
+(A) Generate crafted packets to fire false-positive alerts
+
+  - To address this topic the Numb code (a.k.a.  Numb Next Generation,  or NNG
+    for short) was ideated.
+
+(B) Generate crafted packets to evade pattern-matching technology[*]
+  - To address  this  topic the Encore code (a.k.a. Encore Next Generation, or
+    ENG for short) was ideated.
+
+[*] It may be released soon, using unpublished morphic code techniques.  Let's
+    see how long it will take me to write a good paper in English.
+
+
+-=[ How to create your own False-Positive payload
+
+It is very simple, you just need to get the code of Slammer and some signature
+of Snort, and believe most of commercial NIPS/NIDS use the same signature, and
+Snort signatures are available in its own WEB Site and Slammer is available in
+some good search engine.  Now we just have to find out what should be a _good_
+approach to write pattern-matching signatures. Let's check this:
+- Snort signatures:
+alert udp $EXTERNAL_NET any -> $HOME_NET 1434 (msg: "W32.SQLExp.Worm incoming"; content: "|68 6F 75 6E 74 68 69 63 6B|"; content: "|04|"; offset:0; depth:1; reference: bugtraq,5311; reference: bugtraq,5310; rev: 1;)
+
+- Slammer assembly code:
+<...>
+00000022  682E646C6C        push dword 0x6c6c642e
+00000027  68656C3332        push dword 0x32336c65
+0000002C  686B65726E        push dword 0x6e72656b
+00000031  51                push ecx
+00000032  686F756E74        push dword 0x746e756f <--- BINGO ONCE!!!
+00000037  6869636B43        push dword 0x436b6369 <--- BINGO TWICE!!!
+0000003C  6847657454        push dword 0x54746547
+<...>
+
+But that is not enough, we should pay attention in two columns here:
+- Second column shows us the hexadecimal representation of the opcode;
+- Third column shows us the real opcode.
+
+So, we can add either _second_ and _third_ columns into the payload structure,
+but let's check first what the pushes really mean:
+- First three pushes
+Character       Binary          Octal           Decimal         Hexadecimal
+    l           01101100         154              108               0x6c
+    l           01101100         154              108               0x6c
+    d           01100100         144              100               0x64
+    .           00101110         056               46               0x2e
+    2           00110010         062               50               0x32
+    3           00110011         063               51               0x33
+    l           01101100         154              108               0x6c
+    e           01100101         145              101               0x65
+    n           01101110         156              110               0x6e
+    r           01110010         162              114               0x72
+    e           01100101         145              101               0x65
+    k           01101011         153              107               0x6b
+
+- Second three pushes:
+Character       Binary          Octal           Decimal         Hexadecimal
+    t           01110100         164              116               0x74
+    n           01101110         156              110               0x6e
+    u           01110101         165              117               0x75
+    o           01101111         157              111               0x6f
+    C           01000011         103               67               0x43
+    k           01101011         153              107               0x6b
+    c           01100011         143               99               0x63
+    i           01101001         151              105               0x69
+    T           01010100         124               84               0x54
+    t           01110100         164              116               0x74
+    e           01100101         145              101               0x65
+    G           01000111         107               71               0x47
+
+
+Right now we have, at least, two ways to build the payload structure to use in
+false-positive, but we should reach the right length to fire the alert:
+- Snort signature:
+alert udp $EXTERNAL_NET any -> $HOME_NET 1434 (msg:"MS-SQL version overflow attempt"; flowbits:isnotset,ms_sql_seen_dns; dsize:>100; content:"|04|"; depth:1; reference:bugtraq,5310; reference:cve,2002-0649; reference:nessus,10674; classtype:misc-activity; sid:2050; rev:8;)
+
+The "dsize:>100" is a good gotcha here in this example, there is no NULL  byte 
+checking, so we can build a packet with the first payload data being 0x04  and
+fill all the rest of packet with 0x00,  or we can write a packet with some  of
+the above "strings" to make our payload more effective. Example:
+[nbrito@redhat nbrito]# cat file.pl 
+#!/usr/bin/perl -w
+use strict;
+$0 =~s!^./!!; 
+$0 =~s!pl$!bin!;
+
+my $c;
+$c  = "\x04";
+$c .= chr(0x00)x42."\x90"x5."\xdc\xc9\xb0\x42".
+      "\x68\x2e\x64\x6c\x6c".chr(0x00)x43;
+
+open(FILE, ">" . $0) || die "error opening the file";
+print FILE $c;
+close(FILE) || die "error closing the file";
+[nbrito@redhat nbrito]# ./file.pl
+[nbrito@redhat nbrito]# ls -lah file.bin
+-rw-r--r--    1 nbrito    nbrito          100 Sep  1 12:17 file.bin
+[nbrito@redhat nbrito]# cat file.bin | nc -n -v -u 10.10.10.10 1434
+(UNKNOWN) [10.10.10.10] 1434 (?) open
+uServerName;WIN2KSRV;InstanceName;MSSQLSERVER;IsClustered;No;Version;8.00.194;tcp;1433;np;\\WIN2KSRV\pipe\\sql\query;;
+
+Suggestions, comments or any feedback are VERY WELCOME, and should be sent to:
+Nelson Brito <nbrito@sekure.org>.

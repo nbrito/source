@@ -1,0 +1,75 @@
+  ___________._______________
+  \__    ___/|   ____/\   _  \   T50: an Experimental Packet Injector Tool
+    |    |   |____  \ /  /_\  \                 Release 5.3
+    |    |   /       \\  \_/   \
+    |____|  /______  / \_____  /   Copyright (c) 2001-2011 Nelson Brito
+                   \/        \/             All Rights Reserved
+
+Since the previous release  version (H2HC), some improvements were introduced
+to this new version:
+1. New License: It is, finally, licensed under GPL Version 2.0. Please, refer
+   to LICENSE document for further information.
+
+2. CIDR Support: Classless Inter-Domain Routing  support  for destination  IP
+   address,  using  a  really  tiny  C  algorithm.  This would allow the  new
+   version to simulate DDoS in a laboratory environment.
+
+       [...]
+ 
+       001 unsigned int hostid, counter, rand_addr;
+       002 in_addr_t netmask, __1st_addr, addresses[16777214];
+       003 struct iphdr *ip;
+
+       010 netmask    = ~(0xffffffff>>bits);
+       011 __1st_addr = (ntohl(address)&netmask)+1;
+       012 hostid     = (1 << (32 - bits)) - 2;
+
+       020 for(counter = 0 ; counter < hostid ; counter++)
+       021       addresses[counter] = htonl(__1st_addr++);
+
+       030 rand_daddr = ((float)(hostid)*rand()/(RAND_MAX+1.0));
+       031 ip->daddr  = addresses[rand_daddr];
+
+       [...]
+
+3. ELEVEN NEW Protocols: ELEVEN (11) more protocols supported by T50:
+    1. IGMPv3: Internet Group Message Protocol v3
+    2. EGP:    Exterior Gateway Protocol
+    3. RIPv1:  Routing Information Protocol v1
+    4. RIPv2:  Routing Information Protocol v2
+    5. DCCP:   Datagram Congestion Control Protocol
+    6. RSVP:   Resource ReSerVation Protocol
+    7. IPSec:  Internet Protocol Security (AH/ESP)
+    8. GRE:    Generic Routing Encapsulation
+    9. EIGRP:  Enhanced Interior Gateway Routing Protocol
+   10. OSPF:   Open Shortest Path First
+
+4. Exotic Protocols: Advanced options and protocol crafting for RSVP,  EIGRP,
+   OSPF and GRE were added,  allowing  users  to  make  any combination while
+   using those exotic protocols.  By the way, EIGRP is a proprietary protocol 
+   developed by CISCO Systems, Inc.
+
+5. Encapsulation: T50 is capable now to encapsulate all its packet within the
+   Generic Routing Encapsulation, making it the most powerful tool ever.
+
+6. TCP Options Support: TCP  Options  are  now  supported  to improve the TCP
+   protocol, such as:
+    1. TCP End of Option List (RFC 793)
+    2. TCP No-Operation Option (RFC 793)
+    3. TCP Maximum Segment Size Option (RFC 793)
+    4. TCP Window Scale Option (RFC 1323)
+    5. TCP Timestamps Option (RFC 1323)
+    6. T/TCP Connection Count Option (RFC 1644)
+    7. T/TCP CC.NEW Option (RFC 1644)
+    8. T/TCP CC.ECHO Option (RFC 1644)
+    9. TCP SACK-Permitted Option (RFC 2018)
+   10. TCP Selective Acknowledgement Option (RFC 2018)
+   11. TCP MD5 Signature Option (RFC 2385)
+   12. TCP Authentication Option (RFC 5925)
+
+This changes are not limited to the list  above,  but I  do not have time  to
+write a complete set of improvements, so, please, if you  really want to know
+the complete list of changes, execute the command:
+   - "diff -u --recursive t50-2.45r-H2HC/ t50-5.3/ > t50.patch"
+
+$Id: ChangeLog,v 5.14 2011-04-13 07:43:05-03 nbrito Exp $

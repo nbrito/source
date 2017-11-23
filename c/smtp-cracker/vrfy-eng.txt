@@ -1,0 +1,271 @@
+
+               Linux Magazine        &      Security Networks AG
+            http://linuxmag.com.br        http://www.secunet.com.br
+
+                                 Presents:
+
+                        SMTP's RCPT command Attack
+                        `'`'`'`'`'`'`'`'`'`'`'`'`'
+
+[Autores]
+`'`'`'`'`
+Lucas Fontes     -                       - kspoon@ka0z.net
+Leandro Pereira  - Linux Magazine Brasil - leandro@linuxmag.com.br
+Nelson Brito     - Security Networks AG  - nelson@secunet.com.br
+                   Sekure SDI            - nelson@sekure.org
+
+
+[Introduction]
+`'`'`'`'`'`'`'
+In the beginning when ideas were still  taking shape, the main  objective was to
+show  how it would be possible to obtain rather easily a  SPAM LIST by using the
+VRFY and EXPN commands.
+
+As  a  result  of ongoing tests,  we discovered that  another technique could be
+employed  -  other than the ones widely used    to  obtain a list of valid users
+(directly linked to the SMTP Server being used) for future "BRUTE FORCE" attacks
+and the godforsaken SPAM.
+
+The technique is as follows:
+[HELO] + [MAIL FROM:] + [RCPT TO:]
+
+
+
+[Motivation]
+`'`'`'`'`'`'
+The main aim is to promote awareness among admins of mail servers regarding this
+type  of  attack.  It  all  comes  to  show  that  even  by  following basic RFC
+standart procedues  - without VRFY and EXPN - we can still list  the valid users
+using by another command as suggested in [RFC821].
+
+
+
+[Bug]
+`'`'`
+We  really  cannot  call  this a bug because  there are no restrictions on using
+certain suggested commands.  Let's take an example such as VRFY and EXPN - these
+commands exist to create client interaction and may or may not be implemented.
+
+Let's observe  the  case  of  a basic command for SMTP protocol - the RCPT. This
+command  is  used when defining the user's destination without any restrictions.
+It's the same command used for CC's and BCC's. 
+
+There  is a real good chance we can weaken "secure configurations"  of some SMTP
+Servers(Sendmail - O PrivacyOptions=goaway).
+
+In  our  tests  we  use  Sendmail  because its DSN(Delivery Status Notification)
+follow patterns suggested in [RFC1893].Two other tests were performed with QMail
+and  Checkpoint  FireWall-1  secure  SMTP  server.  These  two do not follow the
+patterns suggested by the RFC due to security issues or  negligence.  Its not up
+to us to pass judgement. 
+
+But pay attention to what is suggested in [[RFC821]: 
+[...]
+   3.1.  MAIL
+
+      There are three steps to SMTP mail transactions.  The transaction
+      is started with a MAIL command which gives the sender
+      identification.  A series of one or more RCPT commands follows
+      giving the receiver information.  Then a DATA command gives the
+      mail data.  And finally, the end of mail data indicator confirms
+      the transaction.
+
+         The first step in the procedure is the MAIL command.  The
+         <reverse-path> contains the source mailbox.
+
+            MAIL <SP> FROM:<reverse-path> <CRLF>
+
+         This command tells the SMTP-receiver that a new mail
+         transaction is starting and to reset all its state tables and
+         buffers, including any recipients or mail data.  It gives the
+         reverse-path which can be used to report errors.  If accepted,
+         the receiver-SMTP returns a 250 OK reply.
+
+         The <reverse-path> can contain more than just a mailbox.  The
+         <reverse-path> is a reverse source routing list of hosts and
+         source mailbox.  The first host in the <reverse-path> should be
+         the host sending this command.
+
+         The second step in the procedure is the RCPT command.
+
+            RCPT <SP> TO:<forward-path> <CRLF>
+
+         This command gives a forward-path identifying one recipient.
+         If accepted, the receiver-SMTP returns a 250 OK reply, and
+         stores the forward-path.  If the recipient is unknown the
+         receiver-SMTP returns a 550 Failure reply.  This second step of
+         the procedure can be repeated any number of times.
+[...]
+
+Compare with the test results obtained in the "Feedback" section. 
+
+
+
+[The tests]
+`'`'`'`'`'`
+1) The first  test  performed  with a Server in which the VRFY and EXPN commands
+had been enabled in its sendmail.cf, observe:
+
+rewt:~/brute-force# smtp-cracker -h leet.eleet.org -i users -o primeiro.txt -v
+connected to leet.eleet.org
+using [VRFY] command
+status: 100% \
+found 6 users in 68 seconds
+rewt:~/brute-force#
+
+
+2) The  second  test  was  performed  with  a  Server in which the VRFY and EXPN
+commands had been deactivated in its sendmail.cf, observe: 
+
+rewt:~/brute-force# smtp-cracker -h leet.eleet.org -i users -o primeiro.txt -r
+connected to leet.eleet.org
+using [RCPT TO:] command
+status: 100% \
+found 6 users in 9 seconds
+rewt:~/brute-force#
+
+
+After both tests, we noticed  that  the "RCPT TO:" technique proved to be faster
+than the first two techniques.
+
+
+
+[Vulnerable]
+`'`'`'`'`'`'
+Among the SMTP Servers that we  tested the only one that was  vulnerable  to the
+new technique employed was the Sendmail because it follows procedures  suggested
+in [RFC821] and [RFC1893].
+
+For further details go to "Feedback" section.
+
+
+
+[Correction]
+`'`'`'`'`'`'
+(I) Sendmail
+`'`'`'`'`'`'
+In the  '/etc/sendmail.cf' file add the parameter to the "O" macro:
+1) Disable the VRFY command:
+"O PrivacyOptions=novrfy"
+
+2) Disable the EXPN command:
+"O PrivacyOptions=noexpn"
+
+3)Disabling both:
+"O PrivacyOptions=goaway"
+
+4) Regarding the RCPT command, we suggest to modify and/or enable the macros:
+"O MaxDaemonChildren=NN"
+"O MaxRecipientsPerMessage=NN"
+"O MaxQueueRunSize=NN"
+
+(II) QMail e CheckPoint FireWall-1 secure SMTP server
+
+We  were  not  able  to  use  this technique because it does not comply with RFC
+standards. See the "FeedBack" section.
+
+
+
+[Extras]
+`'`'`'`'
+We  advise  the  use  of  a  LOGS  checking  system  to visualize any attempt in
+obtaining usernames by using this command.  Go to the following site:
+http://www.psionic.com/abacus/logcheck/
+
+Example of an output sent via email using the logcheck: 
+Active System Attack Alerts
+=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Jan  8 21:58:41 null sendmail[30867]: NOQUEUE: null.localdomain.com 
+[213.231.132.123]: VRFY attack?
+Security Violations
+=-=-=-=-=-=-=-=-=-=
+Jan  8 21:58:41 null sendmail[30867]: NOQUEUE: null.localdomain.com 
+[213.231.132.123]: vrfy usuario [rejected]
+
+Another alternative would be to use IDS(Intrusion Detection System) by filtering
+the VRFY and EXPN strings as well as some RCPT requests.
+
+
+
+[Feedback]
+`'`'`'`'`'
+1) Sendmail:
+[...]
+vrfy me
+252 Cannot VRFY user; try RCPT to attempt delivery (or try finger)
+rcpt to: <bla>
+550 <bla>... User unknown
+rcpt to: <nelson>
+250 <nelson>... Recipient ok
+[...]
+
+2) QMail:
+[...]
+vrfy me
+252 send some mail, i'll try my best
+rcpt to: <bla>
+250 ok
+rcpt to: <blablablablablablablabla>
+250 ok
+[...]
+
+3) CheckPoint FireWall-1 secure SMTP server:
+[...]
+vrfy me
+250 User ok
+rcpt to: <bla>
+250  <bla>... Recipient ok
+rcpt to: <blablablablablablablabla>
+250 <blablablabla... Recipient ok
+[...]
+
+
+
+[Code]
+`'`'`'
+The codes for these tests can be found at the following sites:
+http://stderr.sekure.org/codes/smtp-cracker.c
+
+PS: The  authors  cannot  be  held  responsible  for  incorrect use of this code
+because its serves only as proof-of-concept. We  do not  recommend the malicious
+use of this code.
+
+
+
+[References]
+`'`'`'`'`'`'
+(I) RFCs:
+[RFC821]  - Simple Mail Transfer Protocol - Jonathan B. Postel
+   `-> Topico 3  - The SMTP Procedures
+   `-> Topico 4  - The SMTP Specifications
+   `-> Apendix E - Theory of Reply Codes
+
+[RFC1891] - SMTP Service Extension  for Delivery Status Notifications - K. Moore
+   `-> Topico 7  - Format of delivery notifications
+   `-> Topico 10 - Apendix - Example
+
+[RFC1893] - Enhanced Mail System Status Code - G. Vaudreuil
+   `-> Topico 2  - Status Codes
+   `-> Topico 3  - Enumerated Status Code
+   `-> Topico 8  - Apendix - Collected Status Code
+
+[RFC2505] - Anti-Spam Recommendations - G. Lindberg
+   `-> Topico 1  - Introduction - 1.3 & 1.6
+
+(II) Books:
+Interligacao em Rede com TCP/IP - Volume I - Principios,  protocolos e  arquite-
+tura - 2a. Edicao - Douglas  E. Comer - ISBN 85-352-0270-6 - Ed. Campus
+   `-> Capitulo 25 - Aplicativos: Correio  Eletronico(822, SMTP, MIME) - pg. 479
+
+(III) Bugtraq Archives:
+http://www.securityfocus.com/search/index.html?base=bugtraq&p=VRFY&start=0
+http://www.securityfocus.com/templates/archive.pike?list=1&date=1999-03-08&thread=Pine.BSF.4.05.9903091646030.60594-100000@pez.hyperreal.org
+
+(IV) Best of Security-Brasil Archives:
+http://www.securenet.com.br/cgi-bin/bos-search?bos=VRFY
+
+(V) Software:
+FireWall-1  - http://www.checkpoint.com/products/firewall-1/index.html
+Qmail       - http://www.qmail.org/
+Sendmail    - http://www.sendmail.org/
+

@@ -1,0 +1,7 @@
+The best try against a NIPS/NIDS is:
+nng -d <address|name> --payload <pid> --flood --delay 0
+
+If the NIPS/NIDS surveives after 1, 5 and 10 minutes, you can try the real
+exploit against the target machine, because _sometimes_ the NIPS/NIDS will
+not deal with all the packets and you can inject a _real attack_ without a
+block/detection. That is the beaty in false-positive.

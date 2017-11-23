@@ -1,0 +1,160 @@
+  ___________._______________
+  \__    ___/|   ____/\   _  \   T50: an Experimental Packet Injector Tool
+    |    |   |____  \ /  /_\  \                 Release 5.3
+    |    |   /       \\  \_/   \
+    |____|  /______  / \_____  /   Copyright (c) 2001-2011 Nelson Brito
+                   \/        \/             All Rights Reserved
+
+2010-12-29:
+``````````
+[ ] Add a Web User Interface.
+
+[-] Add tunneling/encapsulation capabilities:
+    [X] Generic Routing Encapsulation (GRE)
+        -- [Done on Thu Mar 10 20:06:13 BRT 2011]
+    [ ] IPSec Encapsulation Protocols (ESP)
+
+[-] Add IGMPv3 improvements support:
+    [X] IGMPv3 Query
+        -- [Done on Mon Jan 31 15:22:54 BRST 2011]
+    [X] IGMPv3 Report
+        -- [Done on Mon Jan 31 15:22:54 BRST 2011]
+    [X] IGMPv3 Number of Sources
+        -- [Done on Mon Jan 31 15:22:54 BRST 2011]
+    [ ] IGMPv3 Distance Vector Multicast Routing Protocol (DVMRP)
+
+[X] Add TCP Options Support:
+    [X] TCP Maximum Segment Size Option
+        -- [Done on Mon Jan 03 17:30:02 BRST 2011]
+    [X] TCP End of Option List Option
+        -- [Done on Mon Jan 03 17:30:02 BRST 2011]
+    [X] TCP No-Operation Option
+        -- [Done on Tue Jan 04 19:49:38 BRST 2011]
+    [X] TCP Window Scale Option
+        -- [Done on Mon Jan 03 17:30:02 BRST 2011]
+    [X] TCP Timestamps Option
+        -- [Done on Thu Jan 06 10:47:23 BRST 2011]
+    [X] T/TCP Connection Count (CC) Option
+        -- [Done on Fri Jan 07 00:01:56 BRST 2011]
+    [X] T/TCP Connection Count New (CC.NEW) Option
+        -- [Done on Fri Jan 07 00:02:19 BRST 2011]
+    [X] T/TCP Connection Count Echo (CC.ECHO) Option
+        -- [Done on Fri Jan 07 00:02:26 BRST 2011 ]
+    [X] TCP SACK-Permitted
+        -- [Done on Mon Jan 03 17:30:02 BRST 2011]
+    [X] TCP Selective Acknowledgement (SACK) Option
+        -- [Done on Tue Jan 04 19:49:38 BRST 2011]
+    [X] TCP MD5 Signature Option
+        -- [Done on Tue Mar 08 00:50:01 BRT 2011]
+    [X] TCP Authentication Option
+        -- [Done on Tue Mar 08 14:00:41 BRT 2011]
+
+[ ] Add DCCP Options Support:
+    [ ] Padding Option
+    [ ] Mandatory Option
+    [ ] Minimum Reserved Option
+    [ ] Maximum Reserved Option
+    [ ] Change Options
+    [ ] Confirm Options
+    [ ] NDP Option
+    [ ] Acknowledgment Vector Options
+    [ ] Timestamp Options
+    [ ] Elapsed Time Options
+    [ ] Maximum Option
+    [ ] Minimum CCID Specific Option
+    [ ] Maximum CCID Specific Option
+
+[X] Add EIGRP TLV (Type/Length/Value):
+    [X] General Parameter TLV
+        -- [Done on Fri Jan 21 14:17:29 BRST 2011]
+    [X] Authentication Data TLV
+        -- [Done on Sun Jan 23 13:29:47 BRST 2011]
+    [X] Sequence TLV
+        -- [Done on Fri Jan 21 14:17:29 BRST 2011]
+    [X] Software Version TLV
+        -- [Done on Fri Jan 21 14:17:29 BRST 2011]
+    [X] Next Multicast Sequence TLV
+        -- [Done on Fri Jan 21 14:17:29 BRST 2011]
+    [X] IP Internal Routes TLV
+        -- [Done on Fri Jan 21 14:17:29 BRST 2011]
+    [X] IP External Routes TLV
+        -- [Done on Fri Jan 21 14:17:29 BRST 2011]
+
+[-] Add RSVP Object Classes:
+    [X] SESSION Class
+        -- [Done on Sun Jan 23 13:22:46 BRST 2011]
+    [X] RSVP_HOP Class
+        -- [Done on Sun Jan 23 13:22:46 BRST 2011]
+    [ ] INTEGRITY Class
+    [X] TIME_VALUES Class
+        -- [Done on Sun Jan 23 13:22:46 BRST 2011]
+    [X] ERROR_SPEC Class
+        -- [Done on Sun Jan 23 13:22:46 BRST 2011]
+    [X] SCOPE Class
+        -- [Done on Sun Jan 23 13:22:46 BRST 2011]
+    [X] STYLE Class
+        -- [Done on Sun Jan 23 13:22:46 BRST 2011]
+    [ ] FLOWSPEC Class
+    [ ] FILTER_SPEC Class
+    [X] SENDER_TEMPLATE Class
+        -- [Done on Sun Jan 23 13:22:46 BRST 2011]
+    [X] SENDER_TSPEC Class
+        -- [Done on Sun Jan 23 13:22:46 BRST 2011]
+    [X] ADSPEC Class
+        -- [Done on Sun Jan 23 13:22:46 BRST 2011]
+    [ ] POLICY_DATA Class
+    [X] RESV_CONFIRM Class
+        -- [Done on Sun Jan 23 13:22:46 BRST 2011]
+    [ ] MESSAGE_ID Class
+    [ ] MESSAGE_ID_ACK Class
+    [ ] MESSAGE_ID_NACK Class
+
+[-] Add OSPF Types, LSA and LLS TLVs:
+    [X] HELLO Type
+        -- [Done on Fri Feb 25 21:30:45 BRT 2011]
+    [X] DD Type
+        -- [Done on Fri Feb 25 21:30:45 BRT 2011]
+    [X] LS Request
+        -- [Done on Fri Feb 25 21:30:45 BRT 2011]
+    [X] LS Update
+        -- [Done on Sat Feb 26 20:02:24 BRT 2011]
+    [X] LS Acknowledgment
+        -- [Done on Sat Feb 26 20:02:24 BRT 2011]
+    [X] Router-LSA
+        -- [Done on Sat Feb 26 20:02:24 BRT 2011]
+    [X] Network-LSA
+        -- [Done on Sat Feb 26 20:02:24 BRT 2011]
+    [X] Summary-LSA IP Network
+        -- [Done on Sat Feb 26 20:02:24 BRT 2011]
+    [X] Summary-LSA ASBR
+        -- [Done on Sat Feb 26 20:02:24 BRT 2011]
+    [X] ASBR-LAS
+        -- [Done on Sat Feb 26 20:02:24 BRT 2011]
+    [X] NSSA-LSA
+        -- [Done on Sat Feb 26 20:02:24 BRT 2011]
+    [X] Group-LSA
+        -- [Done on Sat Feb 26 20:02:24 BRT 2011]
+    [ ] Opaque-LSA Link
+    [ ] Opaque-LSA Area
+    [ ] Opaque-LSA Flood
+    [X] LLS Extended TLV
+        -- [Done on Fri Feb 25 21:30:45 BRT 2011]
+    [X] LLS Crypto Authentication TLV
+        -- [Done on Fri Feb 25 21:30:45 BRT 2011]
+
+[-] Add more exotic protocols, such as:
+    [X] Generic Routing Encapsulation (GRE)
+        -- [Done on Thu Mar 10 20:06:13 BRT 2011]
+    [X] Enhanced Interior Gateway Routing Protocol (EIGRP)
+        -- [Done on Fri Jan 21 14:14:33 BRST 2011]
+    [X] Open Shortest Path First (OSPF)
+        -- [Done on Sat Feb 26 21:30:45 BRT 2011]
+    [ ] GPRS Tunneling Protocol (GTP)
+    [ ] Interior Gateway Routing Protocol (IGRP)
+    [ ] Mobile IP
+    [ ] Protocol Independent Multicast (PIM)
+    [ ] Real-time Transport Protocol (RTP)
+    [ ] Stream Control Transmission Protocol (SCTP)
+    [ ] Virtual Router Redundancy Protocol (VRRP)
+
+$Id: TODO,v 5.16 2011-03-10 20:11:35-03 nbrito Exp $

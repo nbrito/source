@@ -1,0 +1,28 @@
+After one year doing presentations to show the weakness of pattern-matching, I
+decided to move forward.
+
+The most difficult choice, for  me, was to choose  the vulnerability,  and then
+start the signatures analysis and develop a code to generate false-positive.
+
+Finally I choose the MS02-039/CVE-2002-0649.
+
+Two main reason drove me to this decision:
+
+- It is a PRETTY OLD VULNERABILITY and some people has the  wrong feeling that
+  all NIPS/NIDS should/will detect, even because this vulnerability have  been
+  exploited by Slammer Worm;
+
+After the analysis of two Snort signatures, I created two tools trying to:
+(A) Generate crafted packets to fire false-positive alerts
+
+  - To address this topic the Numb code (a.k.a.  Numb Next Generation,  or NNG
+    for short) was ideated.
+
+(B) Generate crafted packets to evade pattern-matching technology[*]
+  - To address  this  topic the Encore code (a.k.a. Encore Next Generation, or
+    ENG for short) was ideated.
+
+If the ENG doesn't work, try it with NNG, and wait for your shell.
+
+Suggestions, comments or any feedback are VERY WELCOME, and should be sent to:
+Nelson Brito <nbrito@sekure.org>.
