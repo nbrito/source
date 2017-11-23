@@ -21,24 +21,24 @@ Well, because when people are designing a new network infra-structure (eg. Datac
 But almost nobody thinks about [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)), or even performs any test to check how the networks infra-structure behaves under stress, under overload, and under attack. Even during a penetration-test, people prefer not running any kind of [Denial-of-Service](https://en.wikipedia.org/wiki/Denial-of-service_attack) testing. Even worse, those people are missing one of the three key concepts of security that are common to risk management:
 * Confidentiality
 * Integrity
-* *AVAILABILITY*
+* **Availability**
 
-## T50
+## Version [5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)
 T50 was designed to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)) on a variety of infra-structure network devices ([2.45](https://github.com/nbrito/source/tree/master/c/t50/2.45r)), using widely implemented protocols, and after some requests it was was re-designed to extend the tests ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)), covering some regular protocols (ICMP, TCP and UDP), some infra-structure specific protocols (GRE, IPSec and RSVP), and some routing protocols (RIP, EIGRP and OSPF).
 
 This new version ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)) is focused on internal infra-structure, which allows people to test the availability of its resources.
 
-### Interior Gateway Protocols (Distance Vector Algorithm):
+### Interior Gateway Protocols (Distance Vector Algorithm)
 * Routing Information Protocol
 * Enhanced Interior Gateway Routing Protocol
 
-### Interior Gateway Protocols (Link State Algorithm):
+### Interior Gateway Protocols (Link State Algorithm)
 * Open Shortest Path First
 
-### Quality-of-Service Protocols:
+### Quality-of-Service Protocols
 * Resource ReSerVation Protocol
 
-### Tunneling/Encapsulation Protocols:
+### Tunneling/Encapsulation Protocols
 * Generic Routing Encapsulation
 
 T50 is a powerful and unique packet injector tool, which is capable to:
