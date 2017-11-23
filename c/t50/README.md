@@ -20,10 +20,10 @@
 * Having a tool to perform TCP/IP protocol [fuzzer](https://en.wikipedia.org/wiki/Fuzzing), covering common regular protocols, such as: [ICMP](https://tools.ietf.org/rfc/rfc792.txt), [TCP](https://tools.ietf.org/rfc/rfc793.txt) and [UDP](https://tools.ietf.org/rfc/rfc768.txt).
 
 Things have changed, and the **T50** became a good unique resource capable to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)). Some protocols were chosen to be part of its [very first release](https://github.com/nbrito/source/tree/master/c/t50/2.45r) coverage:
-* [ICMP (Internet Control Message Protocol)](https://tools.ietf.org/rfc/rfc792.txt)
-* [IGMP (Internet Group Management Protocol)](https://tools.ietf.org/rfc/rfc988.txt)
-* [TCP (Transmission Control Protocol)](https://tools.ietf.org/rfc/rfc793.txt)
-* [UDP (User Datagram Protocol)](https://tools.ietf.org/rfc/rfc768.txt)
+* [ICMP (Internet Control Message Protocol)](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol)
+* [IGMP (Internet Group Management Protocol)](https://en.wikipedia.org/wiki/Internet_Group_Management_Protocol)
+* [TCP (Transmission Control Protocol)](https://en.wikipedia.org/wiki/Transmission_Control_Protocol))
+* [UDP (User Datagram Protocol)](https://en.wikipedia.org/wiki/User_Datagram_Protocol)
 
 ## Why [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software))?
 Well, because when people are designing a new network infra-structure (eg. Datacenter serving to Cloud Computing) they think about:
@@ -41,27 +41,27 @@ But almost nobody thinks about [stress testing](https://en.wikipedia.org/wiki/St
 * **Availability**
 
 ## Version [5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)
-**T50** was designed to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)) on a variety of infra-structure network devices ([2.45](https://github.com/nbrito/source/tree/master/c/t50/2.45r)), using widely implemented protocols, and after some requests it was was re-designed to extend the tests ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)), covering some regular protocols (ICMP, TCP and UDP), some infra-structure specific protocols (GRE, IPSec and RSVP), and some routing protocols (RIP, EIGRP and OSPF).
+**T50** was designed to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)) on a variety of infra-structure network devices ([2.45](https://github.com/nbrito/source/tree/master/c/t50/2.45r)), using widely implemented protocols, and after some requests it was was re-designed to extend the tests ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)), covering some regular protocols ([ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol), [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) and [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol)), some infra-structure specific protocols ([GRE](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation), [IPSec](https://en.wikipedia.org/wiki/IPsec) and [RSVP](https://en.wikipedia.org/wiki/Resource_Reservation_Protocol), and some routing protocols ([RIP](https://en.wikipedia.org/wiki/Routing_Information_Protocol), [EIGRP](https://en.wikipedia.org/wiki/Enhanced_Interior_Gateway_Routing_Protocol) and [OSPF](https://en.wikipedia.org/wiki/Open_Shortest_Path_First)).
 
 This new version ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)) is focused on internal infra-structure, which allows people to test the availability of its resources.
 
 ### Interior Gateway Protocols (Distance Vector Algorithm)
-* Routing Information Protocol
-* Enhanced Interior Gateway Routing Protocol
+* [Routing Information Protocol](https://en.wikipedia.org/wiki/Routing_Information_Protocol)
+* [Enhanced Interior Gateway Routing Protocol](https://en.wikipedia.org/wiki/Enhanced_Interior_Gateway_Routing_Protocol)
 
 ### Interior Gateway Protocols (Link State Algorithm)
-* Open Shortest Path First
+* [Open Shortest Path First](https://en.wikipedia.org/wiki/Open_Shortest_Path_First)
 
 ### Quality-of-Service Protocols
-* Resource ReSerVation Protocol
+* [Resource ReSerVation Protocol](https://en.wikipedia.org/wiki/Resource_Reservation_Protocol)
 
 ### Tunneling/Encapsulation Protocols
-* Generic Routing Encapsulation
+* [Generic Routing Encapsulation](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation)
 
 ## A Powerful and Unique Tool
 **T50** is a powerful and unique packet injector tool, which is capable to:
-1. Send sequentially the following fourteen (14) protocols: ICMP, IGMPv1, IGMPv3, TCP , EGP, UDP, RIPv1, RIPv2, DCCP, RSVP, GRE, IPSec (AH/ESP), EIGRP, and OSPF.
-2. It is the only tool capable to encapsulate the protocols (listed above) within Generic Routing Encapsulation (GRE).
+1. Send sequentially the following fourteen (14) protocols: [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol), [IGMPv1](https://en.wikipedia.org/wiki/Internet_Group_Management_Protocol), [IGMPv3](https://en.wikipedia.org/wiki/Internet_Group_Management_Protocol#IGMPv3_membership_query), [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) , [EGP](https://en.wikipedia.org/wiki/Exterior_Gateway_Protocol), [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol), [RIPv1](https://en.wikipedia.org/wiki/Routing_Information_Protocol#RIP_version_1), [RIPv2](https://en.wikipedia.org/wiki/Routing_Information_Protocol#RIP_version_2), [DCCP](https://en.wikipedia.org/wiki/Datagram_Congestion_Control_Protocol), [RSVP](https://en.wikipedia.org/wiki/Resource_Reservation_Protocol), [GRE](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation), [IPSec](https://en.wikipedia.org/wiki/IPsec) ([AH](https://en.wikipedia.org/wiki/IPsec#Authentication_Header)/[ESP](https://en.wikipedia.org/wiki/IPsec#Encapsulating_Security_Payload)), [EIGRP](https://en.wikipedia.org/wiki/Enhanced_Interior_Gateway_Routing_Protocol), and [OSPF](https://en.wikipedia.org/wiki/Open_Shortest_Path_First).
+2. It is the only tool capable to encapsulate the protocols (listed above) within [Generic Routing Encapsulation (GRE)](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation).
 3. Send an (quite) incredible amount of packets per second, making it a _second to none_ tool:
 * More than 120,000 pps of [SYN](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#CONNECTION-ESTABLISHMENT)  (+60% of the network uplink) in a [100BASE-TX](https://en.wikipedia.org/wiki/Fast_Ethernet#100BASE-TX) network ([Fast Ethernet](https://en.wikipedia.org/wiki/Fast_Ethernet)).
 * More than 1,000,000 pps of [SYN](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#CONNECTION-ESTABLISHMENT)  (+50% of the network uplink) in a [1000BASE-T](https://en.wikipedia.org/wiki/Gigabit_Ethernet#1000BASE-T) network ([Gigabit Ethernet](https://en.wikipedia.org/wiki/Gigabit_Ethernet)).
