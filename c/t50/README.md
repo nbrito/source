@@ -9,7 +9,7 @@ Things have changed, and the T50 became a good unique resource capable to perfor
 * [UDP (User Datagram Protocol)](https://tools.ietf.org/rfc/rfc768.txt)
 
 ## Stress Testing
-* Why "Stress Testing"?
+* Why [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software))?
 ** Well, because when people are designing a new network infra-structure (eg. Datacenter serving to Cloud Computing) they think about:
 *** High-Availability
 *** Load Balancing
