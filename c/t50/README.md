@@ -62,7 +62,7 @@ The main differentiator of the **T50** is that it is able to send all protocols,
 
 For current release of **T50**, please, refer to this [link](https://github.com/fredericopissarra/t50).
 
-For some toughts and recommendatios of [Distributed Denial-of-Service and Denial-of-Service](https://en.wikipedia.org/wiki/Denial-of-service_attack) defenses, please, refer to this [link](https://fnstenv.blogspot.com/2012/02/uso-irresponsavel-do-t50.html).
+For some thoughts and recommendations of [Distributed Denial-of-Service and Denial-of-Service](https://en.wikipedia.org/wiki/Denial-of-service_attack) defenses, please, refer to this [link](https://fnstenv.blogspot.com/2012/02/uso-irresponsavel-do-t50.html).
 
 ## Credits
 [Nelson Brito](https://fnstenv.blogspot.com) (a.k.a. repository's owner)
