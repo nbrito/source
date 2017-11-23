@@ -1,4 +1,4 @@
-# Research Repository
+# Source Repository
 This repository is a collection of information, code and/or tool that helped the repository's owner to study and understand some cybersecurity related topics.
 
 ## Directories
