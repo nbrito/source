@@ -8,35 +8,38 @@ Things have changed, and the T50 became a good unique resource capable to perfor
 * [TCP (Transmission Control Protocol)](https://tools.ietf.org/rfc/rfc793.txt)
 * [UDP (User Datagram Protocol)](https://tools.ietf.org/rfc/rfc768.txt)
 
-## Stress Testing
-* Why [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software))?
-** Well, because when people are designing a new network infra-structure (eg. Datacenter serving to Cloud Computing) they think about:
-*** High-Availability
-*** Load Balancing
-*** Backup Sites (Cold Sites, Hot Sites, and Warm Sites)
-*** Disaster Recovery
-*** Data Redundancy
-*** Service Level Agreements
-*** Etc...
+## Why [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software))?
+Well, because when people are designing a new network infra-structure (eg. Datacenter serving to Cloud Computing) they think about:
+* High-Availability
+* Load Balancing
+* Backup Sites (Cold Sites, Hot Sites, and Warm Sites)
+* Disaster Recovery
+* Data Redundancy
+* Service Level Agreements
+* Etc...
 
 But almost nobody thinks about [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)), or even performs any test to check how the networks infra-structure behaves under stress, under overload, and under attack. Even during a penetration-test, people prefer not running any kind of [Denial-of-Service](https://en.wikipedia.org/wiki/Denial-of-service_attack) testing. Even worse, those people are missing one of the three key concepts of security that are common to risk management:
 * Confidentiality
 * Integrity
-* _AVAILABILITY_
+* *AVAILABILITY*
 
 ## T50
-T50 was designed to perform “Stress Testing” on a variety of infra-structure network devices ([2.45](https://github.com/nbrito/source/tree/master/c/t50/2.45r)), using widely implemented protocols, and after some requests it was was re-designed to extend the tests (as of [5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)), covering some regular protocols (ICMP, TCP and UDP), some infra-structure specific protocols (GRE, IPSec and RSVP), and some routing protocols (RIP, EIGRP and OSPF).
+T50 was designed to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)) on a variety of infra-structure network devices ([2.45](https://github.com/nbrito/source/tree/master/c/t50/2.45r)), using widely implemented protocols, and after some requests it was was re-designed to extend the tests ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)), covering some regular protocols (ICMP, TCP and UDP), some infra-structure specific protocols (GRE, IPSec and RSVP), and some routing protocols (RIP, EIGRP and OSPF).
 
-This new version ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)) is focused on internal infra-structure, which allows people to test the availability of its resources, and covering:
-* Interior Gateway Protocols (Distance Vector Algorithm):
-** Routing Information Protocol
-** Enhanced Interior Gateway Routing Protocol
-* Interior Gateway Protocols (Link State Algorithm):
-** Open Shortest Path First
-* Quality-of-Service Protocols:
-** Resource ReSerVation Protocol
-* Tunneling/Encapsulation Protocols:
-** Generic Routing Encapsulation
+This new version ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)) is focused on internal infra-structure, which allows people to test the availability of its resources.
+
+### Interior Gateway Protocols (Distance Vector Algorithm):
+* Routing Information Protocol
+* Enhanced Interior Gateway Routing Protocol
+
+### Interior Gateway Protocols (Link State Algorithm):
+* Open Shortest Path First
+
+### Quality-of-Service Protocols:
+* Resource ReSerVation Protocol
+
+### Tunneling/Encapsulation Protocols:
+* Generic Routing Encapsulation
 
 T50 is a powerful and unique packet injector tool, which is capable to:
 * Send sequentially the following fourteen (14) protocols: ICMP, IGMPv1, IGMPv3, TCP , EGP, UDP, RIPv1, RIPv2, DCCP, RSVP, GRE, IPSec (AH/ESP), EIGRP, and OSPF.
