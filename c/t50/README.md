@@ -1,5 +1,11 @@
 ```
 /***************************************************************************
+ * Talk:        The Hangover
+ *              Protocol T50
+ * Author:      Nelson Brito <nbrito *NoSPAM* sekure.org>
+ * Conference:  Hackers to Hackers Conference Seventh Edition (November 2010)
+ *              Web Security Forum (April 2011)
+ ***************************************************************************
   ___________._______________
   \__    ___/|   ____/\   _  \   T50: an Experimental Packet Injector Tool
     |    |   |____  \ /  /_\  \                 Release 5.3
