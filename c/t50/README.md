@@ -42,13 +42,13 @@ This new version ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) 
 * Generic Routing Encapsulation
 
 T50 is a powerful and unique packet injector tool, which is capable to:
-* Send sequentially the following fourteen (14) protocols: ICMP, IGMPv1, IGMPv3, TCP , EGP, UDP, RIPv1, RIPv2, DCCP, RSVP, GRE, IPSec (AH/ESP), EIGRP, and OSPF.
-* It is the only tool capable to encapsulate the protocols (listed above) within Generic Routing Encapsulation (GRE).
-* Send an (quite) incredible amount of packets per second, making it a _second to none_ tool:
-** More than 120,000 pps of [SYN](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#CONNECTION-ESTABLISHMENT)  (+60% of the network uplink) in a [100BASE-TX](https://en.wikipedia.org/wiki/Fast_Ethernet#100BASE-TX) network ([Fast Ethernet] (https://en.wikipedia.org/wiki/Fast_Ethernet)).
-** More than 1,000,000 pps of [SYN](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#CONNECTION-ESTABLISHMENT)  (+50% of the network uplink) in a [1000BASE-T](https://en.wikipedia.org/wiki/Gigabit_Ethernet#1000BASE-T) network ([Gigabit Ethernet](https://en.wikipedia.org/wiki/Gigabit_Ethernet)).
-* Perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)) on a variety of network infrastructure, network devices and security solutions in place.
-* Simulate [Distributed Denial-of-Service and Denial-of-Service](https://en.wikipedia.org/wiki/Denial-of-service_attack) attacks, validating Firewall rules, Router ACLs, Intrusion Detection System and Intrusion Prevention System policies.
+1. Send sequentially the following fourteen (14) protocols: ICMP, IGMPv1, IGMPv3, TCP , EGP, UDP, RIPv1, RIPv2, DCCP, RSVP, GRE, IPSec (AH/ESP), EIGRP, and OSPF.
+2. It is the only tool capable to encapsulate the protocols (listed above) within Generic Routing Encapsulation (GRE).
+3. Send an (quite) incredible amount of packets per second, making it a _second to none_ tool:
+* More than 120,000 pps of [SYN](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#CONNECTION-ESTABLISHMENT)  (+60% of the network uplink) in a [100BASE-TX](https://en.wikipedia.org/wiki/Fast_Ethernet#100BASE-TX) network ([Fast Ethernet] (https://en.wikipedia.org/wiki/Fast_Ethernet)).
+* More than 1,000,000 pps of [SYN](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#CONNECTION-ESTABLISHMENT)  (+50% of the network uplink) in a [1000BASE-T](https://en.wikipedia.org/wiki/Gigabit_Ethernet#1000BASE-T) network ([Gigabit Ethernet](https://en.wikipedia.org/wiki/Gigabit_Ethernet)).
+4. Perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)) on a variety of network infrastructure, network devices and security solutions in place.
+5. Simulate [Distributed Denial-of-Service and Denial-of-Service](https://en.wikipedia.org/wiki/Denial-of-service_attack) attacks, validating Firewall rules, Router ACLs, Intrusion Detection System and Intrusion Prevention System policies.
 
 The main differentiator of the T50 is that it is able to send all protocols, sequentially, using one single [RAW(7) SOCKET](https://en.wikipedia.org/wiki/Raw_socket), besides it can be capable to modify network routes.
 
