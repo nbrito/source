@@ -1,8 +1,8 @@
 # T50: an Experimental Packet Injector Tool
-T50 Experimental Mixed Packet Injector (based on private tools: b52, f117 and f22) is a tool designed to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)), and its concept started in 2001, right after release [nb-isakmp.c](https://github.com/nbrito/research/tree/master/cve/CVE-2001-0951), which the main goal is:
+**T50** is an Experimental Mixed Packet Injector (based on private tools: ```b52```, ```f117``` and ```f22```), and a tool designed to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)). Its concept started in 2001, right after release [```nb-isakmp.c```](https://github.com/nbrito/research/tree/master/cve/CVE-2001-0951), which the main goal would be:
 * Having a tool to perform TCP/IP protocol [fuzzer](https://en.wikipedia.org/wiki/Fuzzing), covering common regular protocols, such as: [ICMP](https://tools.ietf.org/rfc/rfc792.txt), [TCP](https://tools.ietf.org/rfc/rfc793.txt) and [UDP](https://tools.ietf.org/rfc/rfc768.txt).
 
-Things have changed, and the T50 became a good unique resource capable to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)). Some protocols were chosen to be part of its [very first release](https://github.com/nbrito/source/tree/master/c/t50/2.45r) coverage:
+Things have changed, and the **T50** became a good unique resource capable to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)). Some protocols were chosen to be part of its [very first release](https://github.com/nbrito/source/tree/master/c/t50/2.45r) coverage:
 * [ICMP (Internet Control Message Protocol)](https://tools.ietf.org/rfc/rfc792.txt)
 * [IGMP (Internet Group Management Protocol)](https://tools.ietf.org/rfc/rfc988.txt)
 * [TCP (Transmission Control Protocol)](https://tools.ietf.org/rfc/rfc793.txt)
@@ -24,7 +24,7 @@ But almost nobody thinks about [stress testing](https://en.wikipedia.org/wiki/St
 * **Availability**
 
 ## Version [5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)
-T50 was designed to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)) on a variety of infra-structure network devices ([2.45](https://github.com/nbrito/source/tree/master/c/t50/2.45r)), using widely implemented protocols, and after some requests it was was re-designed to extend the tests ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)), covering some regular protocols (ICMP, TCP and UDP), some infra-structure specific protocols (GRE, IPSec and RSVP), and some routing protocols (RIP, EIGRP and OSPF).
+**T50** was designed to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)) on a variety of infra-structure network devices ([2.45](https://github.com/nbrito/source/tree/master/c/t50/2.45r)), using widely implemented protocols, and after some requests it was was re-designed to extend the tests ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)), covering some regular protocols (ICMP, TCP and UDP), some infra-structure specific protocols (GRE, IPSec and RSVP), and some routing protocols (RIP, EIGRP and OSPF).
 
 This new version ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) and [5.3r1](https://github.com/nbrito/source/tree/master/c/t50/5.3)) is focused on internal infra-structure, which allows people to test the availability of its resources.
 
@@ -41,7 +41,7 @@ This new version ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) 
 ### Tunneling/Encapsulation Protocols
 * Generic Routing Encapsulation
 
-T50 is a powerful and unique packet injector tool, which is capable to:
+**T50** is a powerful and unique packet injector tool, which is capable to:
 1. Send sequentially the following fourteen (14) protocols: ICMP, IGMPv1, IGMPv3, TCP , EGP, UDP, RIPv1, RIPv2, DCCP, RSVP, GRE, IPSec (AH/ESP), EIGRP, and OSPF.
 2. It is the only tool capable to encapsulate the protocols (listed above) within Generic Routing Encapsulation (GRE).
 3. Send an (quite) incredible amount of packets per second, making it a _second to none_ tool:
@@ -50,7 +50,9 @@ T50 is a powerful and unique packet injector tool, which is capable to:
 4. Perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)) on a variety of network infrastructure, network devices and security solutions in place.
 5. Simulate [Distributed Denial-of-Service and Denial-of-Service](https://en.wikipedia.org/wiki/Denial-of-service_attack) attacks, validating Firewall rules, Router ACLs, Intrusion Detection System and Intrusion Prevention System policies.
 
-The main differentiator of the T50 is that it is able to send all protocols, sequentially, using one single [RAW(7) SOCKET](https://en.wikipedia.org/wiki/Raw_socket), besides it can be capable to modify network routes.
+The main differentiator of the **T50** is that it is able to send all protocols, sequentially, using one single [RAW(7) SOCKET](https://en.wikipedia.org/wiki/Raw_socket), besides it can be capable to modify network routes.
+
+For current release of **T50**, please, refer to this [link](https://github.com/fredericopissarra/t50).
 
 ## Credits
 [Nelson Brito](https://fnstenv.blogspot.com) (a.k.a. repository's owner)
