@@ -15,7 +15,7 @@
  ***************************************************************************/
  ```
 # T50: an Experimental Packet Injector Tool
-**T50** is an Experimental Mixed Packet Injector (based on private tools: ```b52```, ```f117``` and ```f22```), and a tool designed to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)). Its concept started in 2001, right after  [```nb-isakmp.c```](https://github.com/nbrito/research/blob/master/cve/CVE-2001-0951/nb-isakmp.c) release, which the main goal would be:
+**T50** is an Experimental Mixed Packet Injector (based on private tools: [```b52```](https://github.com/nbrito/source/tree/master/c/b52), [```f117```](https://github.com/nbrito/source/tree/master/c/f117) and [```f22```](https://github.com/nbrito/source/tree/master/c/f22)), and a tool designed to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)). Its concept started in 2001, right after  [```nb-isakmp.c```](https://github.com/nbrito/research/blob/master/cve/CVE-2001-0951/nb-isakmp.c) release, which the main goal would be:
 * Having a tool to perform TCP/IP protocol [fuzzer](https://en.wikipedia.org/wiki/Fuzzing), covering common regular protocols, such as: [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol), [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) and [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol).
 
 Things have changed, and the **T50** became a good unique resource capable to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)). Some protocols were chosen to be part of its [very first release](https://github.com/nbrito/source/tree/master/c/t50/2.45r) coverage:
