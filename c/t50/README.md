@@ -27,7 +27,7 @@ Things have changed, and the **T50** became a good unique resource capable to pe
 ## History
 **T50** was first released at [Hackers to Hackers Conference Seventh Edition](https://www.h2hc.com.br/), November 2010, and, less than five months later, was updated and released at Web Security Forum, April 2011. The significant 2011 update introduced ten protocols and redesigned the packet build process, which are still the same since then.
 
-Through the years, **T50** has been widely used by companies validating their infrastructures (running **T50** by themselves or buying/contrating a third-party tool/consultancy that incorporates the **T50**), and, due to its [power and unique](https://github.com/nbrito/source/tree/master/c/t50#a-powerful-and-unique-tool) approach, **T50** has been incroporated by:
+Through the years, **T50** has been widely used by companies validating their infrastructures (running **T50** by themselves or buying/contracting a third-party tool/consultancy that incorporates the **T50**), and, due to its [power and unique](https://github.com/nbrito/source/tree/master/c/t50#a-powerful-and-unique-tool) approach, **T50** has been incroporated by:
 * [ArchAssault](https://archassault.org/packages/archassault/x86_64/t50/)
 * [**BackTrack**](http://www.backtrack-linux.org/forums/showthread.php?t=40252)
 * [BlackArch](http://www.blackarch.org/tools.html)
