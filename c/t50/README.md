@@ -1,9 +1,9 @@
 ```
 /***************************************************************************
- * Talk:        The Hangover (2010) & Protocol T50 (2011)
+ * Talk:        The Hangover - A "modern" (?) high performance approach to
+ *              build an offensive computing tool!
  * Author:      Nelson Brito <nbrito *NoSPAM* sekure.org>
  * Conference:  Hackers to Hackers Conference Seventh Edition (November 2010)
- *              Web Security Forum (April 2011)
  ***************************************************************************
   ___________._______________
   \__    ___/|   ____/\   _  \   T50: an Experimental Packet Injector Tool
