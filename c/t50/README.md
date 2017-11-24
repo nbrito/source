@@ -1,7 +1,6 @@
 ```
 /***************************************************************************
- * Talk:        The Hangover
- *              Protocol T50
+ * Talk:        The Hangover (2010) & Protocol T50 (2011)
  * Author:      Nelson Brito <nbrito *NoSPAM* sekure.org>
  * Conference:  Hackers to Hackers Conference Seventh Edition (November 2010)
  *              Web Security Forum (April 2011)
@@ -24,6 +23,28 @@ Things have changed, and the **T50** became a good unique resource capable to pe
 * [IGMP (Internet Group Management Protocol)](https://en.wikipedia.org/wiki/Internet_Group_Management_Protocol)
 * [TCP (Transmission Control Protocol)](https://en.wikipedia.org/wiki/Transmission_Control_Protocol))
 * [UDP (User Datagram Protocol)](https://en.wikipedia.org/wiki/User_Datagram_Protocol)
+
+## History
+**T50** was first released at [Hackers to Hackers Conference Seventh Edition](https://www.h2hc.com.br/), November 2010, and, less than five months later, was updated and released at Web Security Forum, April 2011. The significant 2011 update introduced ten protocols and redesigned the packet build process, which are still the same since then.
+
+Through the years, **T50** has been widely used by companies validating their infrastructures, and, due to its [power and unique](https://github.com/nbrito/source/tree/master/c/t50#a-powerful-and-unique-tool) approach, **T50** has been incroporated by:
+* [ArchAssault](https://archassault.org/packages/archassault/x86_64/t50/)
+* [**BackTrack**](http://www.backtrack-linux.org/forums/showthread.php?t=40252)
+* [BlackArch](http://www.blackarch.org/tools.html)
+* [Debian](https://packages.debian.org/sid/utils/t50)
+* [Kali](http://tools.kali.org/stress-testing/t50)
+* [Ubuntu](https://packages.ubuntu.com/artful/t50)
+
+### November 2010
+* [Talk](https://github.com/nbrito/talks/tree/master/2010/h2hc)
+* [Demo](https://www.youtube.com/watch?v=NwhccMB1cpI)
+* [Source](https://github.com/nbrito/source/tree/master/c/t50/2.45r)
+### April 2011
+* [Talk](https://github.com/nbrito/talks/tree/master/2011/websecurityforum)
+* [Demo](https://www.youtube.com/watch?v=e1KaL15Br4Y)
+* [Video](https://www.youtube.com/watch?v=hT6y6FduIFY)
+* [Source](https://github.com/nbrito/source/tree/master/c/t50/5.3)
+* [Source](https://github.com/nbrito/source/tree/master/c/t50/5.3r1)
 
 ## Why [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software))?
 Well, because when people are designing a new network infra-structure (eg. Datacenter serving to Cloud Computing) they think about:
