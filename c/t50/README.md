@@ -35,6 +35,17 @@ Through the years, **T50** has been widely used by companies validating their in
 * [Kali](http://tools.kali.org/stress-testing/t50)
 * [Ubuntu](https://packages.ubuntu.com/artful/t50)
 
+Also, proving **T50** [power and unique](https://github.com/nbrito/source/tree/master/c/t50#a-powerful-and-unique-tool) approach, it has been used as a tool to support academic papers and studies:
+* ["ANOMALIAS E SEGURANÇA EM REDES COMPUTACIONAIS: Uma abordagem prática com ataque DOS"](http://www.fatecbauru.edu.br/ojs/index.php/CET/article/download/53/49)
+* ["SISTEMA DE DETECÇÃO DE INTRUSÃO E BLOQUEIO DE ATAQUES UTILIZANDO IDS-SNORT"](http://www.fateclins.edu.br/site/trabalhoGraduacao/7FQZs5t7Bb5kV8ssc2IR1GWUXM6Uw46ynNFVy8dVNTY20vB.pdf)
+* ["AVALIAÇÃO PREVENTIVA DE VULNERABILIDADE NOS SISTEMAS COMPUTACIONAIS DA UNIVERSIDADE FEDERAL DO CEARÁ"](http://www.repositoriobib.ufc.br/000013/0000137a.pdf)
+* ["SISTEMAS IDS E IPS – ESTUDO E APLICAÇÃO DE FERRAMENTA OPEN SOURCE EM AMBIENTE LINUX"](http://painel.passofundo.ifsul.edu.br/uploads/arq/20160331191141344853464.pdf)
+* ["ESTUDO DE CASO DE ATAQUES DE NEGAÇÃO DE SERVIÇO"](http://www.fatecbauru.edu.br/ojs/index.php/CET/article/download/197/164)
+* ["TESTES DE SEGURANÇA EM SDN'S, UTILIZANDO HONEYPOT"](http://www.monografias.ufop.br/bitstream/35400000/253/1/MONOGRAFIA_TestesSegurançaSDN%27s.pdf)
+* ["PROTEGENDO SERVIDORES DE REDE COM OSSEC-HIDS"](http://www.fateclins.edu.br/site/trabalhoGraduacao/fH8dnMpZlbbf6qdmmozdM7CH2jvO2KB4hIn8zC4sPjcsL9W.pdf)
+* ["SISTEMA DE DETECÇÃO DE INTRUSÃO EM REDES DE COMPUTADORES COM TÉCNICAS DE INTELIGÊNCIA COMPUTACIONAL"](http://repositorio.ufla.br/bitstream/1/12161/1/DISSERTAÇÃO_Sistema%20de%20detecção%20de%20intrusão%20em%20redes%20de%20computadores%20com%20técnicas%20de%20inteligência%20computacional.pdf)
+* ["UMA PROPOSTA DE ARQUITETURA DE SEGURANÇA PARA A DETECÇÃO E REAÇÃO A AMEAÇAS EM REDES SDN"](http://seer.upf.br/index.php/rbca/article/viewFile/6595/4190)
+
 ### November 2010
 * [Talk](https://github.com/nbrito/talks/tree/master/2010/h2hc)
 * [Demo](https://www.youtube.com/watch?v=NwhccMB1cpI)
