@@ -47,7 +47,7 @@ Also, proving **T50** [power and unique](https://github.com/nbrito/source/tree/m
 * [Paper 09](http://repositorio.ufla.br/bitstream/1/12161/1/DISSERTAÇÃO_Sistema%20de%20detecção%20de%20intrusão%20em%20redes%20de%20computadores%20com%20técnicas%20de%20inteligência%20computacional.pdf)
 * [Paper 10](http://seer.upf.br/index.php/rbca/article/viewFile/6595/4190)
 
-Last, but not least, **T50** has been mentioned by some security vendors, security consulting and security traning:
+Last, but not least, **T50** has been mentioned by some security vendors, security consulting and security training:
 * [Fortinet](http://www.isacapr.com/uploads/3/9/5/4/39543893/303_v2.pdf)
 * [Radware](https://blog.radware.com/security/2016/06/2016-republican-national-convention-rnc-democratic-national-convention-dnc-will-be-cyber-attacked/)
 * [Network Warrior Weekend Camp](https://nwwc.dk)
