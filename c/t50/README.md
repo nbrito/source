@@ -51,7 +51,7 @@ Last, but not least, **T50** has been mentioned by some security vendors, securi
 * [Fortinet](http://www.isacapr.com/uploads/3/9/5/4/39543893/303_v2.pdf)
 * [Radware](https://blog.radware.com/security/2016/06/2016-republican-national-convention-rnc-democratic-national-convention-dnc-will-be-cyber-attacked/)
 * [Network Warrior Weekend Camp](https://nwwc.dk)
-* [Simulated DDoS Attacks, breaking the firewall infraestructure](https://github.com/kramse/security-courses/raw/master/presentations/pentest/simulated-ddos/simulated-ddos.pdf)
+* [Simulated DDoS Attacks](https://ripe72.ripe.net/presentations/32-simulated-ddos-ripe.pdf)
 
 ### November 2010
 * [Talk](https://github.com/nbrito/talks/tree/master/2010/h2hc)
