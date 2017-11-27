@@ -16,7 +16,7 @@
  ```
 # T50: an Experimental Packet Injector Tool
 **T50** is an Experimental Mixed Packet Injector (based on private tools: [```b52```](https://github.com/nbrito/source/tree/master/c/b52), [```f117```](https://github.com/nbrito/source/tree/master/c/f117) and [```f22```](https://github.com/nbrito/source/tree/master/c/f22)), and a tool designed to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)). Its concept started in 2001, right after  [```nb-isakmp.c```](https://github.com/nbrito/research/blob/master/cve/CVE-2001-0951/nb-isakmp.c) release, which the main goal would be:
-* Having a tool to perform TCP/IP protocol [fuzzer](https://en.wikipedia.org/wiki/Fuzzing), covering common regular protocols, such as: [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol), [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) and [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol).
+* Having a tool to perform TCP/IP protocol [fuzzer](https://en.wikipedia.org/wiki/Fuzzing) (see ["Examples"](https://github.com/nbrito/source/tree/master/c/t50#examples) for further information), covering common regular protocols, such as: [ICMP](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol), [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) and [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol).
 
 Things have changed, and the **T50** became a good unique resource capable to perform [stress testing](https://en.wikipedia.org/wiki/Stress_testing_(software)). Some protocols were chosen to be part of its [very first release](https://github.com/nbrito/source/tree/master/c/t50/2.45r) coverage:
 * [ICMP (Internet Control Message Protocol)](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol)
@@ -111,6 +111,8 @@ This new version ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) 
 
 The main differentiator of the **T50** is that it is able to send all protocols, sequentially, using one single [RAW(7) SOCKET](https://en.wikipedia.org/wiki/Raw_socket), besides it can be capable to modify network routes.
 
+For current release of **T50**, please, refer to this [link](https://github.com/fredericopissarra/t50).
+
 ## Examples
 1.  [CVE-1999-0016](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0016):
 * ```$ sudo ./t50 [target-address]  --dport [target-port] --saddr [target-address] --sport [target-port] --protocol TCP --syn --sequence 3868 --window 2048 --threshold 1```
@@ -124,8 +126,6 @@ The main differentiator of the **T50** is that it is able to send all protocols,
 * ```$ sudo ./t50 [target-address]  --dport [target-port] --protocol TCP --ack --fin --window 16384 --flood```
 6. [BlackNurse](http://blacknurse.dk):
 * ```$ sudo ./t50 [target-address] --protocol ICMP --icmp-type 3 --icmp-code 3 --flood```
-
-For current release of **T50**, please, refer to this [link](https://github.com/fredericopissarra/t50).
 
 ## Credits
 [Nelson Brito](https://fnstenv.blogspot.com) (a.k.a. repository's owner)
