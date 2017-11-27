@@ -6,6 +6,8 @@ By the way, some of information, code and/or tool has been shared a long time ag
 * [```nadas```](https://github.com/nbrito/source/blob/master/shell-script/nadas)
 * [```sdi-brutus```](https://github.com/nbrito/source/tree/master/perl/sdi-brutus)
 * [```smtp-cracker```](https://github.com/nbrito/source/tree/master/c/smtp-cracker)
+2. [SANS GIAC Practical Assgnment Version 1.8 - Feb 12, 2002 ](https://www.giac.org/paper/gcfw/375/giac-gcfw-assignment-pass/101242)
+* [```smtp-cracker```](https://github.com/nbrito/source/tree/master/c/smtp-cracker)
 
 ## Directories
 * assembly
