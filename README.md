@@ -5,7 +5,7 @@ All the information, code and/or tool contained on this repository is the result
 
 By the way, some of information, code and/or tool has been shared a long time ago, and, due to its relevance, has been mentioned by some publications. Example:
 1. [Hack Proofing Your Network](https://books.google.com.br/books?id=Fr9UOKzOjsAC&pg=PA93&lpg=PA93&dq=nelson+brito+OS+Fingerprint&source=bl&ots=YKR_fNuTAR&sig=Q5YzkeMzSsi0cNKVpIYPO8GbiQE&hl=en&sa=X&ved=0ahUKEwjn1qDfleTXAhWDDJAKHbW8B8kQ6AEIYTAM#v=onepage&q=nelson%20brito%20OS%20Fingerprint&f=false)
-2. [SANS GIAC Practical Assgnment Version 1.8 - Feb 12, 2002 ](https://www.giac.org/paper/gcfw/375/giac-gcfw-assignment-pass/101242):
+2. [SANS GIAC Practical Assgnment Version 1.8 (Feb 12, 2002)](https://www.giac.org/paper/gcfw/375/giac-gcfw-assignment-pass/101242):
 * [```smtp-cracker```](https://github.com/nbrito/source/tree/master/c/smtp-cracker)
 3. [Exploração de Vulnerabilidades em Redes TCP/IP - Teceria Edição](https://www.amazon.com.br/Exploração-Vulnerabilidades-Redes-TCP-IP/dp/8550800708?tag=goog0ef-20&smid=A1ZZFT5FULY4LN&ascsubtag=e568c2d9-e34b-4ad2-be08-b21594685672):
 * [```nadas```](https://github.com/nbrito/source/blob/master/shell-script/nadas)
