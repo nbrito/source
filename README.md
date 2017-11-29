@@ -8,7 +8,9 @@ By the way, some of information, code and/or tool has been shared a long time ag
 * Microsoft Windows NT OS Fingerprint Defeating (Page 93)
 2. [SANS GIAC Practical Assgnment Version 1.8 (Feb 12, 2002)](https://www.giac.org/paper/gcfw/375/giac-gcfw-assignment-pass/101242):
 * [```smtp-cracker```](https://github.com/nbrito/source/tree/master/c/smtp-cracker) (Page 102 and 108)
-3. [Exploração de Vulnerabilidades em Redes TCP/IP](https://books.google.com.br/books?id=JCXbDgAAQBAJ&printsec=frontcover):
+3. [Introdução ao Pentes](https://books.google.com.br/books?id=M4fDCAAAQBAJ&printsec=frontcover)
+* [```t50```](https://github.com/nbrito/source/tree/master/c/t50) (Page 253)
+4. [Exploração de Vulnerabilidades em Redes TCP/IP](https://books.google.com.br/books?id=JCXbDgAAQBAJ&printsec=frontcover):
 * [```nadas```](https://github.com/nbrito/source/blob/master/shell-script/nadas) (Page 165)
 * [```sdi-brutus```](https://github.com/nbrito/source/tree/master/perl/sdi-brutus) (Page 185)
 * [```smtp-cracker```](https://github.com/nbrito/source/tree/master/c/smtp-cracker) (Page 30)
