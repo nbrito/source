@@ -367,8 +367,10 @@ __inline__ static size_t eigrp_hdr_len(const u_int16_t foo, const u_int16_t bar,
 			case EIGRP_TYPE_MULTICAST:
 				size += EIGRP_TLEN_MULTICAST;
 				size += EIGRP_TLEN_SEQUENCE;
+				/* FALLTHRU */
 			case EIGRP_TYPE_SOFTWARE:
 				size += EIGRP_TLEN_SOFTWARE;
+				/* FALLTHRU */
 			case EIGRP_TYPE_PARAMETER:
 				size += EIGRP_TLEN_PARAMETER;
 				break;
