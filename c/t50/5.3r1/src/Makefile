@@ -305,6 +305,11 @@ PROTO_FILES    := $(wildcard $(MODULES)/*.c)
 SOURCE = $(CORE_FILES) $(PROTO_FILES)
 OBJECT = $(addprefix $(OBJECTS)/, $(notdir $(addsuffix .o, $(basename $(SOURCE)))))
 
+all: dirs $(RELEASE)/$(PROGRAM)
+
+dirs:
+	@mkdir -p $(OBJECTS) $(RELEASE)
+
 $(RELEASE)/$(PROGRAM): $(OBJECT)
 	$(CC) $(LFLAGS) $@ $(OBJECT)
 	@if [ -f $(STRIP) ] && [ -e $(STRIP) ]; then\
