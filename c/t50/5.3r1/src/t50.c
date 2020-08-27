@@ -140,21 +140,21 @@ int32_t __t50(int32_t argc, int8_t ** argv){
 	/* This is the same thing I use with ENG++ C code. */
 	static struct launch_t50_modules{
 		int32_t proto;
-		void (* raw)(socket_t, struct config_options);
+		const void *(* raw)(const socket_t, const struct config_options);
 	} t50 [] = {
-		{ IPPROTO_ICMP,  (void *) icmp   },
-		{ IPPROTO_IGMP,  (void *) igmpv1 },
-		{ IPPROTO_IGMP,  (void *) igmpv3 },
-		{ IPPROTO_TCP,   (void *) tcp    },
-		{ IPPROTO_EGP,   (void *) egp    },
-		{ IPPROTO_UDP,   (void *) udp    },
-		{ IPPROTO_UDP,   (void *) ripv1  },
-		{ IPPROTO_UDP,   (void *) ripv2  },
-		{ IPPROTO_DCCP,  (void *) dccp   },
-		{ IPPROTO_RSVP,  (void *) rsvp   },
-		{ IPPROTO_AH,    (void *) ipsec  },
-		{ IPPROTO_EIGRP, (void *) eigrp  },
-		{ IPPROTO_OSPF,  (void *) ospf   },
+		{ IPPROTO_ICMP,  icmp   },
+		{ IPPROTO_IGMP,  igmpv1 },
+		{ IPPROTO_IGMP,  igmpv3 },
+		{ IPPROTO_TCP,   tcp    },
+		{ IPPROTO_EGP,   egp    },
+		{ IPPROTO_UDP,   udp    },
+		{ IPPROTO_UDP,   ripv1  },
+		{ IPPROTO_UDP,   ripv2  },
+		{ IPPROTO_DCCP,  dccp   },
+		{ IPPROTO_RSVP,  rsvp   },
+		{ IPPROTO_AH,    ipsec  },
+		{ IPPROTO_EIGRP, eigrp  },
+		{ IPPROTO_OSPF,  ospf   },
 	};
 
 	/* Getting the local time. */
