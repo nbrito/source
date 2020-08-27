@@ -154,18 +154,18 @@ ifeq ($(ARCH),x86_64)
 	CFLAGS         += -fstack-protector-all
 endif
 CFLAGS         += -fstrict-aliasing
-CFLAGS         += -ftoplevel-reorder
-CFLAGS         += -funroll-loops
-CFLAGS         += -funroll-all-loops
+#CFLAGS         += -ftoplevel-reorder
+#CFLAGS         += -funroll-loops
+#CFLAGS         += -funroll-all-loops
 CFLAGS         += -fomit-frame-pointer
-CFLAGS         += -fkeep-inline-functions
-CFLAGS         += -ftree-loop-optimize
-CFLAGS         += -fbranch-target-load-optimize
-CFLAGS         += -foptimize-register-move
-CFLAGS         += -lmpi
+#CFLAGS         += -fkeep-inline-functions
+#CFLAGS         += -ftree-loop-optimize
+#CFLAGS         += -fbranch-target-load-optimize
+#CFLAGS         += -foptimize-register-move
+#CFLAGS         += -lmpi
 ifeq ($(ARCH),x86_64)
 	CFLAGS         += -m64
-	CFLAGS         += -mpc64
+#	CFLAGS         += -mpc64
 endif
 ifeq ($(ARCH),i386)
 	CFLAGS         += -m32
@@ -238,7 +238,7 @@ DFLAGS         += -I$(INCLUDES)
 ## Any new linker flag should be added in this section.
 #
 # Tuning parameters to better performance in linkage process.
-LFLAGS         += -m elf_$(ARCH)
+#LFLAGS         += -m elf_$(ARCH)
 #
 # CAUTION: Do not enable '-s' and '-static' on the same time.
 LFLAGS         += -s
@@ -295,6 +295,7 @@ PROGRAM         = t50
 
 $(OBJECTS)/%.o: $(SOURCES)/%.c
 	$(CC) $(CFLAGS) -c $< $(DFLAGS) -o $@
+
 $(OBJECTS)/%.o: $(MODULES)/%.c
 	$(CC) $(CFLAGS) -c $< $(DFLAGS) -o $@
 
