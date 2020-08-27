@@ -840,32 +840,31 @@ extern void usage(int8_t *, int8_t *, int8_t *);
    Common module routines used by code.
    Any new module routine should be added in this section. */
 /* Function Name: ICMP packet header configuration. */
-__inline__ extern const void * icmp   (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * icmp   (const socket_t, const struct config_options);
 /* Function Name: IGMPv1 packet header configuration. */
-__inline__ extern const void * igmpv1 (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * igmpv1 (const socket_t, const struct config_options);
 /* Function Name: IGMPv3 packet header configuration. */
-__inline__ extern const void * igmpv3 (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * igmpv3 (const socket_t, const struct config_options);
 /* Function Name: TCP packet header configuration. */
-__inline__ extern const void * tcp    (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * tcp    (const socket_t, const struct config_options);
 /* Function Name: EGP packet header configuration. */
-__inline__ extern const void * egp    (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * egp    (const socket_t, const struct config_options);
 /* Function Name: UDP packet header configuration. */
-__inline__ extern const void * udp    (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * udp    (const socket_t, const struct config_options);
 /* Function Name: RIPv1 packet header configuration. */
-__inline__ extern const void * ripv1  (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * ripv1  (const socket_t, const struct config_options);
 /* Function Name: RIPv2 packet header configuration. */
-__inline__ extern const void * ripv2  (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * ripv2  (const socket_t, const struct config_options);
 /* Function Name: DCCP packet header configuration. */
-__inline__ extern const void * dccp   (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * dccp   (const socket_t, const struct config_options);
 /* Function Name: RSVP packet header configuration. */
-__inline__ extern const void * rsvp   (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * rsvp   (const socket_t, const struct config_options);
 /* Function Name: IPSec packet header configuration. */
-__inline__ extern const void * ipsec  (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * ipsec  (const socket_t, const struct config_options);
 /* Function Name: EIGRP packet header configuration. */
-__inline__ extern const void * eigrp  (const socket_t, const struct config_options) __attribute__((always_inline));
+extern const void * eigrp  (const socket_t, const struct config_options);
 /* Function Name: OSPF packet header configuration. */
-__inline__ extern const void * ospf   (const socket_t, const struct config_options) __attribute__((always_inline));
-
+extern const void * ospf   (const socket_t, const struct config_options);
 
 __END_DECLS
 
