@@ -1,5 +1,5 @@
 # Source
-This repository is a collection of information, code and/or tool, which I've released and/or presented in some of the most notorious conferences, helping the audience to study and understand some cybersecurity related topics.
+This repository is a collection of information, code and/or tool, which I've released and/or presented in some of the most notorious conferences, helping the audience to study and understand some cybersecurity related topics. Also, there is a special directory (sekure.org), where can be found some really "old, but gold" codes made by Sekure.ORG group.
 
 All the information, code and/or tool contained on this repository is the result of hours, and hours of researching process, conducted by myself on my spare time, in the hope of contributing to the cybersecurity community.
 
@@ -20,6 +20,7 @@ By the way, some of information, code and/or tool has been shared a long time ag
 * [assembly](https://github.com/nbrito/source/tree/master/assembly)
 * [c](https://github.com/nbrito/source/tree/master/c)
 * [perl](https://github.com/nbrito/source/tree/master/perl)
+# [Sekure.org] (https://github.com/nbrito/source/tree/master/sekure.org)
 * [shell-script](https://github.com/nbrito/source/tree/master/shell-script)
 
 # Credits
