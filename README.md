@@ -20,7 +20,7 @@ By the way, some of information, code and/or tool has been shared a long time ag
 * [assembly](https://github.com/nbrito/source/tree/master/assembly)
 * [c](https://github.com/nbrito/source/tree/master/c)
 * [perl](https://github.com/nbrito/source/tree/master/perl)
-* [sekure.org] (https://github.com/nbrito/source/tree/master/sekure.org)
+* [sekure.org](https://github.com/nbrito/source/tree/master/sekure.org)
 * [shell-script](https://github.com/nbrito/source/tree/master/shell-script)
 
 # Credits
