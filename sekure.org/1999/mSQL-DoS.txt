@@ -1,0 +1,252 @@
+Date: Mon, 11 Jan 1999 01:53:30 -0200
+From: Sekure SDI SSC <bishop@SEKURE.ORG>
+To: BUGTRAQ@netspace.org
+Subject: Sekure SDI Advisory: mSQL Remote Bug (fwd)
+
+                              s e k u r e  SDI
+                           http://www.sekure.org
+                       -----------------------------
+                     Brazilian Information Security Team
+
+
+
+
+                     -> mSQL Buffer Overflow Advisory <-
+                    http://www.sekure.org/advisories.html
+                                 (no.01/99)
+
+
+
+1. <.Overview.>
+
+
+  mSQL is a SQL server for Unix and Windows systems. It's a complete
+server to manage database (create, drop, insert tables, query, etc) and
+soon it became one of the most known SQL servers in the community.
+
+  It's most used in web servers dealing with e-commerce and web servers
+which deals with database (such as search engines). We've noticed it's
+most well known in the Unix servers than the Windows boxes.
+
+
+
+2. <.The flaw(s).>
+
+
+ In the mSQL v1.0.xx, we've found a lot of buffers without any bounds
+check. But, what took us a special attention was the follow lines:
+
+--- common/debug.c ---
+
+void _msqlDebug(va_alist)
+        va_dcl
+{
+                va_list args;
+        char    msg[10240],
+
+ (...)
+        (void)vsprintf(msg,fmt,args);
+ (...)
+
+-----------------------
+
+  As we can see by looking in these lines above, we've a function which
+will merrily pass a long string (over 10240 bytes) in the stack without
+any check.
+
+  But, we're still needing a call to msqlDebug to create security thread:
+
+----- msql/msqld.c -----
+
+        FD_SET(newSock,&clientFDs);
+        uname = (char *)strtok(packet,"\n");
+        msqlDebug(MOD_GENERAL,"User = %s\n",uname);
+        safeFree(conArray[newSock].user);
+        conArray[newSock].user = (char *)
+        strdup(uname);
+        sprintf(packet,"-100:\n");
+        writePkt(newSock);
+
+--------------------------
+
+  That's it. If the mSQL is in Debug mode, a long username (over 10240)
+will crash the machine (and possible execute arbitrary codes in the
+stack).
+
+  You might be thinking it's over. Ok, we've found another security
+problem which can lead to denial of service or arbitrary commands to be
+executed in the stack.
+
+  Have a good look at these lines:
+
+----- msql/msqld.c -------
+
+     switch(command)
+     {
+       case INIT_DB:
+       cp=(char *)strtok(packet+2,"\n\r");
+       if (!cp)
+       {
+                sendError(comSock,NO_DB_ERROR);
+                break;
+       }
+       strcpy(dbname,cp);
+       msqlDebug(MOD_GENERAL,"DBName = %s\n", dbname);
+       conArray[comSock].access = msqlCheckAccess(
+                dbname, conArray + comSock);
+     (...)
+       if (msqlInit(dbname) < 0)
+     (...)
+
+-----------------------
+
+   As you can see here, wwe've three possible threads:
+
+   1) strcpy (dbname, cp);
+
+     The variable dbname has 32 bytes long and the strcpy will happily
+pass the database name string (which can be over 12000 bytes long) in the
+stack. What took our attention was the behavior of this special buffer. We
+can't reach the return address but we can mess with the socket descriptor,
+causing the select function to crash, thus creating a denial of service
+thread (the server was unreachable).
+
+   2) msqlDebug(MOD_GENERAL, "DBname = %s\n", dbname);
+
+     As explained above, the msqlDebug has a vulnerable buffer, thus
+passing a long database name to the server, if it's in Debug mode, we can
+reach the return address in the stack, causing a denial of service or
+an arbitrary commands to be executed.
+
+   3) msqlInit(dbname)
+
+  Take a look at these lines:
+
+---- msql/msqldb.c -----
+
+int msqlInit(DB)
+        char    *DB;
+{
+        char    path[255];
+(...)
+        (void)sprintf(path,"%s/msqldb/%s",msqlHomeDir,DB);
+(...)
+
+-------------------------
+
+  The function msqlInit will merrily pass the database name (given by the
+client) to a 255 bytes long buffer. It'll cause a buffer overflow, which
+can lead to arbitrary commands to be executed in the stack or a denial of
+service.
+
+  Hughes Technologies (the developer of mSQL) has developed a new version
+of the server, the mSQL-2.0.xx. Thus, to make sure the vulnerability was
+defeated, we've checked the code and here is the list of vulnerable
+versions:
+
+
+ mSQL v1.0.xx -> Vulnerable to the whole possibilities of exploiting
+(arbitrary commands) and denial of service (debug and dbname).
+
+ mSQL v2.0.2 and prior -> Vulnerable to the possibility of exploiting
+(arbitrary commands) and denial of service (debug and dbname).
+
+ mSQL v2.0.3 and above -> Not vulnerable to the exploiting vulnerability
+(arbitrary commands) but it's still vulnerable to Denial of Service (debug
+ and dbname). See the comments below:
+
+  Hughes has patched the 2.0.3 version from the msqlInit() attack and the
+msqlDebug attack. Though, we can still cause a denial of service in the
+mSQL server:
+
+----- common/debug.c -----
+
+(...)
+static char     msgBuf[10 * 1024];
+(...)
+
+
+void _msqlDebug(va_alist)
+        va_dcl
+{
+
+  (...)
+        (void)vsprintf(msgBuf,fmt,args);
+  (...)
+
+---------------------------
+
+  If we pass a long string (over 10240 bytes) to the static buffer, we
+can happily crash the server, causing a segmentation fault.
+
+  The dbname thread was not completly removed, the strcpy (dbname, cp) is
+still there which can lead to mess the socket descriptor, thus causing a
+denial of service.
+
+
+
+3. <.Consequences.>
+
+
+  All versions of mSQL are vulnerable to Denial of Service, which can lead
+to crash the database server, messing with the whole applications using
+the database.
+
+  Versions prior to 2.0.2 (including 2.0.2) are vulnerable to arbitrary
+commands been executed in the stack, thus leading to gain access to the
+remote machine running mSQL with the privilegies of the default mSQL user:
+
+  - In 1.0.xx versions, the default user is *root*.
+  - In 2.0.xx versions, the default user is msql (but if the server is
+called by a root user, it'll only do a setuid(getuid(msql)), thus keeping
+the gid(0) privileges).
+
+
+4. <.Testing the vulnerability.>
+
+
+  We've developed the exploitation script to this thread which we'll make
+available through the web page:
+
+   http://ssc.sekure.org
+
+  Obs.: We believe that the information must be available to the whole
+community, beeing a script kiddie and using our tool for ilicit activity
+is condemmed by all of our members.
+
+
+5. <.Fix.>
+
+
+  To defeat the exploitation, apply the mSQL patch "Sekure-mSQL".
+  Features:
+
+  - Syslog implementation.
+  - Minor corrections.
+  - Security holes corrections.
+  - Attack attempt log.
+
+  You may also find it at:
+  http://ssc.sekure.org
+
+
+6. <.Contacts.>
+
+
+  Sekure SDI Advisory is a publication of Sekure SDI
+  Brazilian Information Security Team
+  http://www.sekure.org
+  mailto:info@sekure.org
+
+  This advisory has been written by Secure Coding Sekure SDI Group.
+  http://ssc.sekure.org
+  mailto:securecode@sekure.org
+
+  Subscribe the "Best of Security Brasil" (bos-br) Mailing list
+  http://bos.sekure.org (portuguese as the main language)
+  mailto:bos-br-request@sekure.org
+
+
+---
+securecode@sekure.org
+mainly written by c0nd0r <condor@sekure.org>
