@@ -1,6 +1,6 @@
 /**************************************************************************
  * Talk:        The Departed - Exploit Next Generation (The Philosophy)
- * Author:      Nelson Brito <nbrito *NoSPAM* sekure.org>
+ * Author:      Nelson Brito <nbrito *NoSPAM* protonmail.com>
  * Conference:  Hackers to Hackers Conference Sixth Edition (November 2009)
  ***************************************************************************
  * Copyright (c) 2009 Nelson Brito. All rights reserved worldwide.

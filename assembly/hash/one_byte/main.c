@@ -1,6 +1,6 @@
 /**************************************************************************
  * Talk:        The Departed - Exploit Next Generation (The Philosophy)
- * Author:      Nelson Brito <nbrito *NoSPAM* sekure.org>
+ * Author:      Nelson Brito <nbrito *NoSPAM* protonmail.com>
  * Conference:  Hackers to Hackers Conference Sixth Edition (November 2009)
  ***************************************************************************
  * Copyright (c) 2009 Nelson Brito. All rights reserved worldwide.
@@ -32,7 +32,7 @@ int main (int argc, char **argv){
 	unsigned long Hash;
 
 	printf("Exploit Next Generation [Windows Function Hashing]\n");
-	printf("Nelson Brito <nbrito[at]sekure.org>\n\n");
+	printf("Nelson Brito <nbrito[at]protonmail.com>\n\n");
 
 	if(argc == 2){
 		FuncName = argv[1];
