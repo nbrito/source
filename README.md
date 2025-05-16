@@ -15,6 +15,7 @@ By the way, some of information, code and/or tool has been shared a long time ag
 * [```sdi-brutus```](https://github.com/nbrito/source/tree/master/perl/sdi-brutus) (Page 185)
 * [```smtp-cracker```](https://github.com/nbrito/source/tree/master/c/smtp-cracker) (Page 30)
 * Microsoft Windows NT OS Fingerprint Defeating (Page 25)
+5. [PacketStorm Dossier](https://packetstorm.news/files/author/436/1)
 
 ## Directories
 * [assembly](https://github.com/nbrito/source/tree/master/assembly)

@@ -136,9 +136,8 @@ PS:
      (G) Works against Catalysts and 16XX Series.
 
 Greats:
-     Thiago Zaninotti(c0nd0r),  Gustavo Scotti(csh),  Fábio Ramos(AciDmuD),
-     Sérgio Monteiro(Papa-Tudo),  Rafael(netrap), Nilson Brito(my brother),
-     Felipe(falcon),  corb(Manu),  Alexandre Pauferro,  Carlinha(mi amore),
+     Thiago Zaninotti(c0nd0r), Gustavo Scotti(csh), Rafael(netrap), Nilson
+     Brito(my brother),  Felipe(falcon),  corb(Manu),   Alexandre Pauferro,  ,
      Mamãe,  Helge Fischer(to support me),  Andréa Goulart and André Silva.
 
      I would like to thank rfp to open my mind to begin use PERL to code my
